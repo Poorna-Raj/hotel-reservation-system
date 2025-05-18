@@ -1,7 +1,7 @@
 <?php
     session_start();
     header("Content-Type: application/json");
-    include '../dbUtil.php';
+    include '../../dbUtil.php';
 
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     echo json_encode([

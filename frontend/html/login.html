@@ -13,7 +13,7 @@ document.getElementById("login-form").addEventListener("submit", async function(
     const password = document.getElementById("password").value;
     const status = document.getElementById("login-status");
 
-    const response = await fetch("../../backend/api/api_login.php", {
+    const response = await fetch("../../backend/api/auth/api_login.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
