@@ -1,0 +1,43 @@
+<form id="login-form">
+    <input type="text" name="username" id="username" placeholder="Username" required />
+    <input type="password" name="password" id="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+    <p id="login-status"></p>
+</form>
+
+<script>
+document.getElementById("login-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const status = document.getElementById("login-status");
+
+    const response = await fetch("../../backend/api/api_login.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+    });
+
+    const result = await response.json();
+
+    if ((result.success) && (result.role === "customer")) {
+        status.textContent = "Login successful! Redirecting...";
+        status.style.color = "green";
+        setTimeout(() => {
+            window.location.href = "customer_dash.php";
+        }, 1000);
+    } 
+    else if((result.success) && (result.role === "admin")){
+        status.textContent = "Login successful! Redirecting...";
+        status.style.color = "green";
+        setTimeout(() => {
+            window.location.href = "admin_dash.php";
+        }, 1000);
+    }
+    else {
+        status.textContent = result.message;
+        status.style.color = "red";
+    }
+});
+</script>
