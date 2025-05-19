@@ -7,29 +7,31 @@
         if($_SERVER['REQUEST_METHOD'] !== 'POST'){
             echo json_encode([
                 'success' => false,
-                'message'=> 'Invalid request method'
+                'message'=> 'Invalid Request Method'
             ]);
             exit;
         }
-        
+
         $data = json_decode(file_get_contents('php://input'),true);
+        if(isset($data['reservationID']) && is_numeric($data['reservationID'])){
+            $reservID = $data['reservationID'];
+        }
+        else{
+            echo json_encode([
+                'success'=> false,
+                'message'=> 'Reservation id missing'
+            ]);
+            exit;
+        }
 
-        $customer_id = $data['customer_id'];
-        $room_id = $data['roomID'];
-        $inDate = $data['inDate'];
-        $outDate = $data['outDate'];
-        $numGuest = $data['num_of_guest'];
-        $total = $data['total'];
-
-        $sql = 'INSERT INTO tblreservation (customer_id,room_id,check_in_date,check_out_date,num_guest,total_amount) VALUES (?,?,?,?,?,?)';
+        $sql = 'DELETE FROM tblreservation WHERE id = ?';
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('iissid', $customer_id,$room_id, $inDate, $outDate, $numGuest, $total);
+        $stmt->bind_param('i', $reservID);
         $stmt->execute();
-        if($stmt ->affected_rows === 1){
-            $reservID = $conn->insert_id;
+        if($stmt->affected_rows >0){
             echo json_encode([
                 'success'=> true,
-                'reservationID' => $reservID
+                'message'=> 'Reservation removed successfully'
             ]);
         }
         else{
@@ -50,5 +52,4 @@
         $conn->close();
         exit;
     }
-    // TODO:Imporve the check any clash with existing reservations
 ?>
