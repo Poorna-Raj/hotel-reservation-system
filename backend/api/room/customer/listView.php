@@ -1,6 +1,6 @@
 <?php
     header("Content-type:application/json");
-    include '../../dbUtil.php';
+    include '../../../dbUtil.php';
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
     if($_SERVER['REQUEST_METHOD'] !== 'GET'){

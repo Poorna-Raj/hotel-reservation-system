@@ -1,52 +1,46 @@
 <?php
+    session_start();
     header("Content-type:application/json");
     include '../../../dbUtil.php';
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
     try{
-        if($_SERVER['REQUEST_METHOD'] !== 'GET'){
+        if(!isset($_SESSION['user_id'])){
             echo json_encode([
                 'success' => false,
-                'message'=> 'Incorrect Request'
+                'message'=> 'User id is missing'
             ]);
             exit;
         }
-        else{
-            $roomID = $_GET['id'] ?? '';
-        }
+        $user = $_SESSION['user_id'];
 
-        $sql = 'SELECT * FROM tblroom WHERE id = ?';
+        $sql = 'SELECT * FROM tblreservation WHERE customer_id = ? ORDER BY check_out_date DESC';
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('i', $roomID);
+        $stmt->bind_param('i', $user);
         $stmt->execute();
         $result = $stmt->get_result();
-
-        $room = [];
-        if($result->num_rows === 1){
-            $room = $result->fetch_assoc();
-
+        $reservation = [];
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                $reservation[] = $row;
+            }
             echo json_encode([
                 'success'=> true,
-                'data' => $room
+                'data' => $reservation
             ]);
         }
         else{
             echo json_encode([
                 'success'=> false,
-                'message'=> 'Room not found'
+                'message'=> 'No reservation for the customer'
             ]);
         }
+        $stmt->close();
     }
     catch(mysqli_sql_exception $e){
         echo json_encode([
             'success'=> false,
             'message'=> $e->getMessage()
-        ]);
-    }
-    catch(Exception $ex){
-        echo json_encode([
-            'success'=> false,
-            'message'=> $ex->getMessage()
         ]);
     }
     finally{
