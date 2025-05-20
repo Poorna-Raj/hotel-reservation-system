@@ -47,6 +47,7 @@
                     "message" => "Login Successfull",
                     "role"=> $row["role"]
                 ]);
+                $_SESSION['user_id'] = $row['id'];
             }
             else{
                 echo json_encode([
