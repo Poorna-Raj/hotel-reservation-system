@@ -1,0 +1,941 @@
+{
+	"info": {
+		"_postman_id": "93d3d1ba-6c2f-4a12-87bf-57653a4b8319",
+		"name": "hotel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43960470",
+		"_collection_link": "https://poorna-7200646.postman.co/workspace/fs-test~47be2cd1-97da-4d8d-aa27-3ecd530453ab/collection/43960470-93d3d1ba-6c2f-4a12-87bf-57653a4b8319?action=share&source=collection_link&creator=43960470"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"poorna@gmail.com\",\r\n    \"password\" : \"4321\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/auth/api_login.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"auth",
+						"api_login.php"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"poorna@gmail.com\",\r\n    \"password\" : \"4321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/CW/hotel-reservation-system/backend/api/auth/api_login.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"CW",
+								"hotel-reservation-system",
+								"backend",
+								"api",
+								"auth",
+								"api_login.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 20 May 2025 14:00:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.58 (Win64) OpenSSL/3.1.3 PHP/8.2.12"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "PHPSESSID=r1aku3280050v7basu77fkj6g7; path=/"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store, no-cache, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Login Successfull\",\n    \"role\": \"customer\"\n}"
+				}
+			]
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"arosha@gmail.com\",\r\n    \"password\" : \"1234\",\r\n    \"full_name\" : \"Arosha Bandara\",\r\n    \"nic\" : null,\r\n    \"tel_number\" : \"0761234567\",\r\n    \"address\" : \"32/F,Gampaha\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/auth/api_register.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"auth",
+						"api_register.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "room view",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/room/listView.php?name=papaya",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"room",
+						"listView.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "papaya"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "room",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/room/roomView.php?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"room",
+						"roomView.php"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reservation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/room/reservation.php?roomID=3&inDate=2025-05-15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"room",
+						"reservation.php"
+					],
+					"query": [
+						{
+							"key": "roomID",
+							"value": "3"
+						},
+						{
+							"key": "inDate",
+							"value": "2025-05-15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Room",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Jasmin - 01\",\r\n    \"type\" : \"Family\",\r\n    \"price\" : 9300,\r\n    \"bed_type\" : \"King\",\r\n    \"occupancy\" : 7,\r\n    \"description\" : \"This is a long description\",\r\n    \"short_description\" : \"This is a short description\",\r\n    \"image1\" : \"\",\r\n    \"image2\" : \"\",\r\n    \"image3\" : \"\",\r\n    \"status\" : \"Booked\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/room/addRoom.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"room",
+						"addRoom.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRoom",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Jasmin - 01\",\r\n    \"type\" : \"Family\",\r\n    \"price\" : 10300,\r\n    \"bed_type\" : \"King\",\r\n    \"occupancy\" : 7,\r\n    \"description\" : \"This is a long description\",\r\n    \"short_description\" : \"This is a short description\",\r\n    \"image1\" : \"\",\r\n    \"image2\" : \"\",\r\n    \"image3\" : \"\",\r\n    \"status\" : \"Booked\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/room/updateRoom.php?roomID=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"room",
+						"updateRoom.php"
+					],
+					"query": [
+						{
+							"key": "roomID",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRoom",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/room/deleteRoom.php?roomID=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"room",
+						"deleteRoom.php"
+					],
+					"query": [
+						{
+							"key": "roomID",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addReservation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_id\" : 4,\r\n    \"roomID\" : 8,\r\n    \"inDate\" : \"2025-06-19\",\r\n    \"outDate\" : \"2025-06-21\",\r\n    \"num_of_guest\" : 5,\r\n    \"total\" : 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/reservation/addReservation.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"reservation",
+						"addReservation.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteReservation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reservationID\" : 10\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/reservation/deleteReservation.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"reservation",
+						"deleteReservation.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateReservation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reserveID\" : 7,\r\n    \"roomID\" : 8,\r\n    \"inDate\" : \"2025-06-19\",\r\n    \"outDate\" : \"2025-06-21\",\r\n    \"num_of_guest\" : 5,\r\n    \"total\" : 8500,\r\n    \"payStatus\" : \"Paid\",\r\n    \"reserveStatus\" : \"Booked\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/reservation/updateReservation.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"reservation",
+						"updateReservation.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reservation view",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/reservation/reservationView.php?reserveID=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"reservation",
+						"reservationView.php"
+					],
+					"query": [
+						{
+							"key": "reserveID",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerReservation",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=r1aku3280050v7basu77fkj6g7; Path=/;",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/reservation/customer/reservation.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"reservation",
+						"customer",
+						"reservation.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "viewReview",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/review/viewReview.php?user_id=3&reservation_id=8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"review",
+						"viewReview.php"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "3"
+						},
+						{
+							"key": "reservation_id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addReview",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=sr5957p0fskhfsb85f1g4kvkda; Path=/;",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reservation_id\" :  2,\r\n    \"rating\" : 4,\r\n    \"comment\" : \"This room kinda good\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/review/customer/addReview.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"review",
+						"customer",
+						"addReview.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "viewReviewCus",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=sr5957p0fskhfsb85f1g4kvkda; Path=/;",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/review/customer/viewReview.php?user_id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"review",
+						"customer",
+						"viewReview.php"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateReview",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=sr5957p0fskhfsb85f1g4kvkda; Path=/;",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"review_id\" : 2,\r\n    \"rating\" : 1,\r\n    \"comment\" : \"This room smell like fish\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/review/customer/updateReview.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"review",
+						"customer",
+						"updateReview.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteReview",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=sr5957p0fskhfsb85f1g4kvkda; Path=/;",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"review_id\" : 4,\r\n    \"reservation_id\" : 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/review/customer/deleteReview.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"review",
+						"customer",
+						"deleteReview.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "viewUser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=sr5957p0fskhfsb85f1g4kvkda; Path=/;",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/userManage/viewUser.php?email=poorna",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"userManage",
+						"viewUser.php"
+					],
+					"query": [
+						{
+							"key": "role",
+							"value": "customer",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "poorna"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=sr5957p0fskhfsb85f1g4kvkda; Path=/;",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"admin456@gmail.com\",\r\n    \"password\" : \"admin456\",\r\n    \"role\" : \"admin\",\r\n    \"active\" : 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/userManage/addUser.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"userManage",
+						"addUser.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=sr5957p0fskhfsb85f1g4kvkda; Path=/;",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"admin1234@gmail.com\",\r\n    \"password\" : \"admin@123\",\r\n    \"role\" : \"admin\",\r\n    \"active\" : 1,\r\n    \"user_id\" : 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/userManage/updateUser.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"userManage",
+						"updateUser.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=sr5957p0fskhfsb85f1g4kvkda; Path=/;",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\" : 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/CW/hotel-reservation-system/backend/api/userManage/deleteUser.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"CW",
+						"hotel-reservation-system",
+						"backend",
+						"api",
+						"userManage",
+						"deleteUser.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
