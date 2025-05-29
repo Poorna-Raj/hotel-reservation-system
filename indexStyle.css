@@ -1,0 +1,222 @@
+
+    
+            /* ─── Base / Reset ─────────────────────────────────── */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-family: "Inter", sans-serif;
+                background: #001a10;
+                color: #e9f7ef;
+                overflow-x: hidden;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            /* ─── Hero Section ────────────────────────────────── */
+            .hero {
+                position: relative;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                overflow: hidden;
+            }
+
+            /* video background */
+            .hero video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                z-index: -2;
+                transform: translate(-50%, -50%);
+                object-fit: cover;
+                filter: brightness(0.6);
+            }
+            /* fallback img */
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background:
+                    linear-gradient(
+                        120deg,
+                        rgba(0, 26, 16, 0.8) 0%,
+                        rgba(0, 26, 16, 0.3) 35%,
+                        rgba(255, 142, 0, 0.25) 100%
+                    ),
+                    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80")
+                        center/cover no-repeat;
+                z-index: -3;
+            }
+
+            /* glass overlay card */
+            .glass {
+                backdrop-filter: blur(28px) saturate(160%);
+                -webkit-backdrop-filter: blur(28px) saturate(160%);
+                background: rgba(0, 30, 15, 0.45);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                padding: clamp(1.5rem, 3vw, 3.5rem) clamp(1.25rem, 3vw, 3rem);
+                border-radius: 1.5rem;
+                max-width: 740px;
+                animation: fadeUp 0.9s ease-out both;
+            }
+
+            @keyframes fadeUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(40px) scale(0.97);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            h1 {
+                font-size: clamp(2.75rem, 6vw, 4.5rem);
+                font-weight: 800;
+                letter-spacing: -0.02em;
+                line-height: 1.1;
+                background: linear-gradient(90deg, #9be15d 0%, #00e37d 50%, #9be15d 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                margin-bottom: 1rem;
+            }
+
+            .tagline {
+                font-size: clamp(1rem, 2vw, 1.35rem);
+                font-weight: 300;
+                color: #d1f2e5;
+                margin-bottom: 2.25rem;
+                max-width: 55ch;
+                margin-inline: auto;
+            }
+
+            .btn-group {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                position: relative;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 1rem 2.75rem;
+                font-weight: 600;
+                font-size: 1rem;
+                border-radius: 60px;
+                border: none;
+                cursor: pointer;
+                transition: all 0.35s ease;
+                isolation: isolate;
+            }
+            .btn-primary {
+                color: #002813;
+                background: #e9f7ef;
+            }
+            .btn-primary::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background: linear-gradient(135deg, #a8f985 0%, #3bff9b 100%);
+                z-index: -1;
+                opacity: 0;
+                transition: opacity 0.35s ease;
+            }
+            .btn-primary:hover::after {
+                opacity: 1;
+            }
+            .btn-outline {
+                color: #e9f7ef;
+                background: transparent;
+                border: 1px solid rgba(233, 247, 239, 0.45);
+            }
+            .btn-outline:hover {
+                background: rgba(255, 255, 255, 0.12);
+                backdrop-filter: blur(4px);
+            }
+
+            /* scroll hint */
+            .mouse {
+                width: 28px;
+                height: 46px;
+                border: 2px solid #e9f7ef;
+                border-radius: 20px;
+                position: absolute;
+                bottom: 40px;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0.85;
+            }
+            .mouse::after {
+                content: "";
+                position: absolute;
+                top: 10px;
+                left: 50%;
+                width: 6px;
+                height: 6px;
+                background: #e9f7ef;
+                border-radius: 50%;
+                transform: translateX(-50%);
+                animation: scroll 2s infinite;
+            }
+            @keyframes scroll {
+                0% {
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+                50% {
+                    opacity: 0;
+                    transform: translate(-50%, 12px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate(-50%, 0);
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation: none !important;
+                    transition: none !important;
+                }
+            }
+            /* subtle elephant silhouettes overlay */
+            .hero::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="rgba(255,255,255,0.06)"><path d="M104 244c-8-37 22-79 59-88 42-11 60 11 93 8 23-2 33-16 54-15 23 1 38 22 60 27 25 6 52-13 74-3 20 10 34 40 24 59-8 14-26 13-44 14-25 1-34 29-56 38-34 15-76 9-112-1-29-8-46-37-75-41-29-5-73 14-81-28z"/></svg>')
+                    repeat center / 420px 280px;
+                mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 70%);
+                animation: float 60s linear infinite;
+            }
+            @keyframes float {
+                0% {
+                    background-position: 0 0;
+                }
+                100% {
+                    background-position: 600px 400px;
+                }
+            }
+    
