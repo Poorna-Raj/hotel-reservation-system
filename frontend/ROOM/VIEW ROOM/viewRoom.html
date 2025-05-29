@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><?php echo htmlspecialchars($row['room_name']) ?></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+     <link rel ="stylesheet" href="viewRoom.css">
+   
+  </head>
+  <body>
+
+    
+<!-- this is the navigation bar -->
+       <nav class="navbar">
+    <div class="logo">Elephant & Nature Resort</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+      <div class="profile">
+        <img src="../../Assets/ROOM IMAGE/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" alt="Profile Picture">
+        <span>John Doe</span>
+      </div>
+  </nav>
+    <!-- navigation code is close -->
+
+
+
+    <div class="room-container">
+      <div class="room-header">
+        <h1 class="room-name"><?php echo htmlspecialchars($row['room_name'])?></h1>
+        <span class="room-type-badge"><?php echo htmlspecialchars($row['type'])?></span>
+      </div>
+
+      <div class="image-gallery">
+        <div class="main-image">
+          <img
+            src="https://images.unsplash.com/photo-1560185009-dddeb820c7b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Primary room image" />
+        </div>
+        <div class="side-images">
+          <img
+            src="https://images.unsplash.com/photo-1560185128-e173042f79dd?q=80&w=2011&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Second room image" />
+          <img
+            src="https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Third room image" />
+        </div>
+      </div>
+
+      <div class="room-details">
+        <div class="details-left">
+          <div class="detail-row">
+            <span class="detail-label">Bed Type</span>
+            <div class="detail-value">
+              <i class="fas fa-bed amenity-icon"></i>
+              <?php echo htmlspecialchars($row['bed_type'])?>
+            </div>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Max Occupancy</span>
+            <div class="detail-value">
+              <i class="fas fa-users amenity-icon"></i>
+              <?php echo htmlspecialchars($row['max_occupancy'])?> persons
+            </div>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Room Features</span>
+            <div class="amenities">
+              <div class="amenity-item"><i class="fas fa-wifi amenity-icon"></i> WiFi</div>
+              <div class="amenity-item"><i class="fas fa-tv amenity-icon"></i> Smart TV</div>
+              <div class="amenity-item"><i class="fas fa-snowflake amenity-icon"></i> AC</div>
+              <div class="amenity-item"><i class="fas fa-bath amenity-icon"></i> Private Bath</div>
+            </div>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Description</span>
+            <p class="description"><?php echo htmlspecialchars($row['description'])?></p>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Status</span>
+            <div class="detail-value">
+              <?php if(strtolower($row['status']) == 'available'): ?>
+              <span class="status-badge status-available"> <i class="fas fa-check-circle"></i> Available </span>
+              <?php else: ?>
+              <span class="status-badge status-unavailable"> <i class="fas fa-times-circle"></i> Unavailable </span>
+              <?php endif; ?>
+            </div>
+          </div>
+        </div>
+
+        <div class="details-right">
+          <div class="price-section">
+            <div class="price-label">Price per night</div>
+            <div class="price-value">Rs.45000 <?php echo htmlspecialchars($row['price'])?></div>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Room Overview</span>
+            <p><?php echo htmlspecialchars($row['short_description'])?></p>
+          </div>
+
+          <button
+            class="book-now-btn"
+            onclick="window.location.href='bookRoom.php?id=<?php echo $id?>&price=<?php echo $row['price']?>'">
+            <i class="fas fa-calendar-check"></i> Book Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
