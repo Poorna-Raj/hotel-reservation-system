@@ -118,10 +118,11 @@
 <section class="contact-section" id="contact">
   <h2>Contact Us</h2>
   <p>Email: info@elephantnature.lk | Phone: +94 77 123 4567</p>
-  <form>
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea placeholder="Message"></textarea>
+  <form id="sendEmail">
+    <input type="text" name = "name" placeholder="Your Name" required />
+    <input type="email" name = "email" placeholder="Your Email" required />
+    <textarea placeholder="Message" name = "message"></textarea>
+    <p id="contactResponse" style="color:red; display:none;"></p>
     <button type="submit">Send Message</button>
   </form>
   <!-- Make response to this form -->
