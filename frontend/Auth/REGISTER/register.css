@@ -194,3 +194,10 @@
                 padding: 30px;
             }
         }
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elephant & Nature Management - Registration</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="register.css" />
-    <script src="register.js"></script>
+    <link rel="stylesheet" href="register.css" />
 </head>
 <body>
+    <script src="register.js"></script>
     <div class="registration-wrapper">
         <div class="registration-image" id="randomImageContainer">
             <img id="randomImage" src="https://i.pinimg.com/736x/12/b4/23/12b4230b8cce67ff79f49cda9f2e6270.jpg" alt="Random Nature Image">
@@ -65,6 +65,10 @@
                     <label for="con-pass">Confirm Password</label>
                     <input type="password" id="con-pass" name="con-pass" class="form-control" placeholder="Confirm your password">
                     <div class="error" id="con-pass-error"></div>
+                </div>
+
+                <div id="errorMessage" class="error-message">
+                    Invalid username or password
                 </div>
 
                 <button type="submit" class="register-btn">

@@ -69,5 +69,4 @@
         $conn->close();
         exit;
     }
-    // TODO:Imporve the check any clash with existing reservations
 ?>
