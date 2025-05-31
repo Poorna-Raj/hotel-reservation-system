@@ -8,6 +8,6 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
     btnLog.addEventListener("click",function(){
-        window.location.href="frontend/html/auth/login.html";
+        window.location.href="frontend/Auth/LOGIN/login.html";
     });
 });
