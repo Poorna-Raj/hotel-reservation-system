@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const btnBook = document.querySelector(".btn btn-primary");
-    const btnLog = document.querySelector(".btn btn-outline");
+    const btnBook = document.querySelector(".btn.btn-primary");
+    const btnLog = document.querySelector(".btn.btn-outline");
 
     btnBook.addEventListener("click",function(){
         window.location.href="";
