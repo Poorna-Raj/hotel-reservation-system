@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
             if(data.success){
                 if(data.role === "admin"){
-                    alert("Login successful as admin!");
+                    window.location.href="../../ROOM/ROOM CARD/Admin/Roomcard.html";
                 }
                 else if (data.role === "customer"){
                     alert("Login Successfull as customer");
