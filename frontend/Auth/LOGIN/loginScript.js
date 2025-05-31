@@ -18,12 +18,10 @@ document.addEventListener('DOMContentLoaded',function(){
             : '<i class="fas fa-eye-slash"></i>';
     });
 
-    loginForm.addEventListener("submit",async function(){
+    loginForm.addEventListener("submit",async function(event){
         event.preventDefault();
         const logUsername = document.getElementById('username').value.trim();
         const logPassword = document.getElementById('password').value.trim();
-        console.log(logPassword);
-        console.log(logUsername);
         const apiPath = "../../../backend/api/auth/api_login.php";
 
         if(!validateEmail(logUsername)){

@@ -39,7 +39,7 @@
         $stmtUser->close();
 
         $sqlCus = "INSERT INTO tblcustomer (user_id,full_name,nic_number,tel_number,address) VALUES (?,?,?,?,?);";
-        $stmtCus = $conn->prepare($sql);
+        $stmtCus = $conn->prepare($sqlCus);
         $stmtCus->bind_param("issss",$userId,$fullName,$nic,$tel,$address);
         $stmtCus->execute();
         $stmtCus->close();
@@ -50,7 +50,7 @@
         ]);
     }
     catch(mysqli_sql_exception $e){
-        if($e === 1062){
+        if($e->getCode() === 1062){
             echo json_encode([
                 'success'=> false,
                 'message'=> 'Email already in use'
