@@ -26,20 +26,38 @@
     <div class="container">
         <div class="filter-search">
             <form action="roomList.php" method="get">
+               
+
                 <div class="form-group">
-                    <label for="search-name">Search by Name</label>
-                    <input type="text" name="search-name" id="search-name" placeholder="Room Name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="status">Room Status</label>
+                    <label for="status">Room Type</label>
                     <select name="status" id="status">
                         <option value="">--ALL--</option>
-                        <option value="Available">Available</option>
-                        <option value="Booked">Booked</option>
-                        <option value="Repair">Repair</option>
+                        <option value="Deluxe">Deluxe</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Suite">Suite</option>
+                         <option value="Family">Family</option>
                     </select>
                 </div>
+
+
+                <div class="form-group">
+                    <label for="status">Bed Type</label>
+                    <select name="status" id="status">
+                        <option value="">--ALL--</option>
+                        <option value="Single">Single</option>
+                        <option value="Double">Double</option>
+                        <option value="Twin">Twin</option>
+                        <option value="Queen">Queen</option>
+                        <option value="King">King</option>
+                    </select>
+                </div>
+                
+              <div class="form-group">
+    <label for="max-occupancy">Max Occupancy</label>
+    <input type="number" name="max-occupancy" id="max-occupancy" placeholder="Enter number of guests">
+</div>
+
+
                 
                 <div class="form-group">
                     <label for="order">Order By</label>

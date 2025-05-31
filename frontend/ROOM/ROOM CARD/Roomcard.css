@@ -33,7 +33,7 @@
        
         .navbar 
         {
-            background-color: rgb(17, 211, 111);
+            background-color: #328E6E;
             position: fixed;
             top: 0;
             left: 0;
@@ -54,6 +54,7 @@
     .navbar .logo {
       font-size: 20px;
       font-weight: bold;
+      color: white;
     }
 
     .navbar ul {
@@ -72,7 +73,7 @@
     }
 
     .navbar ul li a:hover {
-      color: #040505;
+      color: #ffff00;
     }
     .profile {
       display: flex;
@@ -88,6 +89,7 @@
 
     .profile span {
       font-size: 14px;
+      color: white;
     }
 
         header p {
@@ -152,6 +154,17 @@
             transition: background-color 0.3s;
             margin-top: 24px;
         }
+        input[type="text"],
+input[type="number"],
+select {
+    padding: 12px 16px;
+    border: 2px solid var(--gray);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+
 
         input[type="submit"]:hover {
             background-color: var(--dark-purple);
