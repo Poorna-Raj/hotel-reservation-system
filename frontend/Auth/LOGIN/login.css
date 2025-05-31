@@ -1,7 +1,7 @@
 
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #4a90e2;
+            --primary-color: #2c503c;
+            --secondary-color: #2cdd70;
             --background-color: #f4f6f9;
             --text-color: #333;
         }
@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #328E6E 0%, #67AE6E 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -46,7 +46,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            background: linear-gradient(135deg, #67AE6E 0%, rgba(129, 201, 172, 0.8) 60%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -166,7 +166,7 @@
         }
 
         .login-btn:hover {
-            background-color: #3a7bc8;
+            background-color: #055628;
         }
 
         .login-btn:active {
