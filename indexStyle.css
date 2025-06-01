@@ -19,7 +19,86 @@
                 text-decoration: none;
             }
             
+/* -----------------------------------------nav bar----------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 15px 30px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
 
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #22c55e;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-outline,
+.btn-fill {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: #14532d;
+}
+
+.btn-fill {
+  background: #22c55e;
+  color: white;
+}
+
+.btn-fill:hover {
+  background: #16a34a;
+}
+
+/* ------------------------------------nav bar code ended------------------------------------------------------ */
             /* ─── Hero Section ────────────────────────────────── */
             .hero {
                 position: relative;
@@ -220,7 +299,7 @@
     }
 }
 /* --------------------------------------------------------------------------------------------------------- */
-/* === Gallery Section === */
+/* ===---------------------------------------------- Gallery Section === */
 .gallery-section {
   padding: 60px 20px;
   background: #f4f4f4;
@@ -253,8 +332,21 @@
 .gallery-grid img:hover {
   transform: scale(1.05);
 }
+.btn {
+  background-color: #004d26;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
 
-/* === Map / Location Section === */
+.btn:hover {
+  background-color: #006644;
+}
+
+
+/* ===-------------------------------------------------- Map / Location Section --------------------------------=== */
 .location-section {
   padding: 60px 20px;
   background-color: #fff;
