@@ -62,7 +62,7 @@
                 z-index: -3;
             }
 
-            /* glass overlay card */
+            /*---------------------------------- glass overlay card------------------------------------ */
             .glass {
                 backdrop-filter: blur(28px) saturate(160%);
                 -webkit-backdrop-filter: blur(28px) saturate(160%);
@@ -192,8 +192,23 @@
     border-radius: 1.5rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
 
-/* Responsive layout */
+.btn-secondary {
+    background-color: #00994d;
+}
+
+.btn-secondary:hover {
+    background-color: #00b359;
+}
+
+
+/*----------------------------------------------------- Responsive layout -------------------------------------------*/
 @media (min-width: 768px) {
     .about-container {
         flex-direction: row;
