@@ -58,7 +58,7 @@ function renderRooms(rooms){
         card.removeAttribute('id');
         card.classList.add('room-card');
 
-        card.querySelector('img').src = 'images/' + room.image;
+        card.querySelector('img').src = room.image_01;
         card.querySelector('h3').textContent = room.room_name;
         card.querySelector('.price').textContent = 'Rs. ' + room.price;
         card.querySelector('.description').textContent = room.description;

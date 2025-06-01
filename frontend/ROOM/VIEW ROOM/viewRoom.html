@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo htmlspecialchars($row['room_name']) ?></title>
+    <title>Room</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
      <link rel ="stylesheet" href="viewRoom.css">
    
@@ -32,22 +32,22 @@
 
     <div class="room-container">
       <div class="room-header">
-        <h1 class="room-name"><?php echo htmlspecialchars($row['room_name'])?></h1>
-        <span class="room-type-badge"><?php echo htmlspecialchars($row['type'])?></span>
+        <h1 class="room-name"></h1>
+        <span class="room-type-badge"></span>
       </div>
 
       <div class="image-gallery">
         <div class="main-image">
           <img
-            src="https://images.unsplash.com/photo-1560185009-dddeb820c7b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src=""
             alt="Primary room image" />
         </div>
         <div class="side-images">
-          <img
-            src="https://images.unsplash.com/photo-1560185128-e173042f79dd?q=80&w=2011&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          <img class="side-image-1"
+            src=""
             alt="Second room image" />
-          <img
-            src="https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          <img class="side-image-2"
+            src=""
             alt="Third room image" />
         </div>
       </div>
@@ -58,7 +58,7 @@
             <span class="detail-label">Bed Type</span>
             <div class="detail-value">
               <i class="fas fa-bed amenity-icon"></i>
-              <?php echo htmlspecialchars($row['bed_type'])?>
+              <p class="bed-type-detail"></p>
             </div>
           </div>
 
@@ -66,33 +66,21 @@
             <span class="detail-label">Max Occupancy</span>
             <div class="detail-value">
               <i class="fas fa-users amenity-icon"></i>
-              <?php echo htmlspecialchars($row['max_occupancy'])?> persons
+              <p class="detail-value-occu"></p>
             </div>
           </div>
 
-          <div class="detail-row">
-            <span class="detail-label">Room Features</span>
-            <div class="amenities">
-              <div class="amenity-item"><i class="fas fa-wifi amenity-icon"></i> WiFi</div>
-              <div class="amenity-item"><i class="fas fa-tv amenity-icon"></i> Smart TV</div>
-              <div class="amenity-item"><i class="fas fa-snowflake amenity-icon"></i> AC</div>
-              <div class="amenity-item"><i class="fas fa-bath amenity-icon"></i> Private Bath</div>
-            </div>
-          </div>
 
           <div class="detail-row">
             <span class="detail-label">Description</span>
-            <p class="description"><?php echo htmlspecialchars($row['description'])?></p>
+            <p class="description"></p>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">Status</span>
             <div class="detail-value">
-              <?php if(strtolower($row['status']) == 'available'): ?>
-              <span class="status-badge status-available"> <i class="fas fa-check-circle"></i> Available </span>
-              <?php else: ?>
-              <span class="status-badge status-unavailable"> <i class="fas fa-times-circle"></i> Unavailable </span>
-              <?php endif; ?>
+              <span class="status-badge status-available" style="display: none;"> <i class="fas fa-check-circle"></i> Available </span>
+              <span class="status-badge status-unavailable" style="display: none;"> <i class="fas fa-times-circle"></i> Unavailable </span>
             </div>
           </div>
         </div>
@@ -100,12 +88,12 @@
         <div class="details-right">
           <div class="price-section">
             <div class="price-label">Price per night</div>
-            <div class="price-value">Rs.45000 <?php echo htmlspecialchars($row['price'])?></div>
+            <div class="price-value"></div>
           </div>
 
           <div class="detail-row">
             <span class="detail-label">Room Overview</span>
-            <p><?php echo htmlspecialchars($row['short_description'])?></p>
+            <p class="detailsShort"></p>
           </div>
 
           <button
@@ -116,5 +104,6 @@
         </div>
       </div>
     </div>
+    <script src="viewRoom.js"></script>
   </body>
 </html>

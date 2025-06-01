@@ -59,11 +59,11 @@ function renderRooms(rooms){
         card.removeAttribute('id');
         card.classList.add('room-card');
 
-        card.querySelector('img').src = 'images/' + room.image;
+        card.querySelector('img').src = room.image_01;
         card.querySelector('h3').textContent = room.room_name;
         card.querySelector('.price').textContent = 'Rs. ' + room.price;
         card.querySelector('.description').textContent = room.description;
-        card.querySelector('.view-details').href = 'room.php?id=' + room.id;
+        card.querySelector('.view-details').href = '../VIEW ROOM/viewRoom.html?id=' + room.id;
 
         const roomType = card.querySelector('.room-type');
         if(roomType){
