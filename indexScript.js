@@ -4,8 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const emailForm = document.getElementById("sendEmail");
 
     btnBook.addEventListener("click",function(){
-        window.location.href="";
-        // TODO : Specify the link
+        window.location.href="frontend/ROOM/ROOM CARD/Roomcard.html";
     });
 
     btnLog.addEventListener("click",function(){
