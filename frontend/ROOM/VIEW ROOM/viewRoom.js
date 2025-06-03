@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded",function(){
     const checkinInput = bookingForm.checkin;
     const checkoutInput = bookingForm.checkout;
     const totalPriceDisplay = document.getElementById("total");
+    const deleteBtn = this.document.getElementById("deleteBtn");
     const params = new URLSearchParams(this.window.location.search);
     const roomId = params.get('id');
     if (!roomId) {
@@ -14,7 +15,9 @@ window.addEventListener("DOMContentLoaded",function(){
     (async function() {
         renderRoom(roomId);
     })();
-
+    (async function(){
+        checkUser();
+    })();
     const bookBtn = this.document.getElementById("bookNowBtn");
 
     bookBtn.addEventListener("click",function(){
@@ -65,6 +68,22 @@ window.addEventListener("DOMContentLoaded",function(){
     checkinInput.addEventListener("change", updatePriceDisplay);
     checkoutInput.addEventListener("change", updatePriceDisplay);
 
+    deleteBtn.addEventListener("click",async function(){
+        const apiRoot = "../../../backend/api/room/deleteRoom.php";
+        const params = new URLSearchParams();
+        if(roomId) params.append("roomID",roomId);
+        const response = await fetch(apiRoot + "?" + params);
+        const result = await response.json();
+
+        if(result.success){
+            alert("Deletion Successfull");
+            window.location.href="../ROOM CARD/AdminCrudRoom.html";
+        }
+        else{
+            alert("Operation Failed: ",result.message);
+        }
+
+    });
 });
 
 async function renderRoom(id) {
@@ -137,4 +156,14 @@ function roomTotal(price,inDate,outDate){
     }
 
     return price * days;
+}
+
+async function checkUser() {
+    const respond = await fetch("../../../backend/api/auth/getRole.php");
+    const result = await respond.json();
+
+    if(result.success && result.role === "customer"){
+        const adminFunc = document.getElementById("adminFunc");
+        adminFunc.style.display = "none";
+    }
 }

@@ -48,6 +48,7 @@
                     "role"=> $row["role"]
                 ]);
                 $_SESSION['user_id'] = $row['id'];
+                $_SESSION['role'] = $row['role'];
             }
             else{
                 echo json_encode([
