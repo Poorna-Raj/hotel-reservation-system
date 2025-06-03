@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded",function(){
             const result = await respond.json();
             if(result.success){
                 window.location.href="AdminCrudRoom.html";
+                popupClose();
             }
         }
         catch(err){
@@ -135,4 +136,9 @@ async function loadRooms(){
         return;
     }
     return result.data;
+}
+
+function popupClose(){
+    const addForm = document.getElementById("popup");
+    addForm.style.display = "none";
 }
