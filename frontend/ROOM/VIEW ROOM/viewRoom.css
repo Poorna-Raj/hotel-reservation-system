@@ -448,7 +448,9 @@
 .popup-form {
   background: #fff;
   padding: 20px;
-  width: 400px;
+  width: 750px;
+  max-height: 80vh; /* Limit height */
+  overflow-y: auto; /* Enable scroll if content is too tall */
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   animation: popupFade 0.3s ease;
@@ -462,11 +464,22 @@
 .popup-form h2 {
   margin-top: 0;
   margin-bottom: 15px;
+  text-align: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.full-width {
+  grid-column: span 2;
 }
 
 .popup-form label {
   display: block;
-  margin-top: 10px;
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
@@ -478,6 +491,7 @@
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  font-size: 0.95rem;
 }
 
 .popup-buttons {
@@ -487,19 +501,36 @@
 }
 
 .popup-buttons button {
-  padding: 8px 15px;
+  padding: 10px 20px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .popup-buttons button[type="submit"] {
-  background-color: #11a34d;
+  background-color: #0f8b46;
   color: white;
 }
 
 .popup-buttons button[type="button"] {
   background-color: #ccc;
+}
+
+/* Responsive: Single column on small screens */
+@media (max-width: 768px) {
+  .popup-form {
+    width: 90%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .popup-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
       
