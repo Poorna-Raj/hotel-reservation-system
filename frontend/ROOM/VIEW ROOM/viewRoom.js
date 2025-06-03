@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded",function(){
     const bookingForm = this.document.getElementById("bookingForm");
     const checkinInput = bookingForm.checkin;
     const checkoutInput = bookingForm.checkout;
+    const updateRoomForm = this.document.getElementById("updateRoomForm");
     const totalPriceDisplay = document.getElementById("total");
     const deleteBtn = this.document.getElementById("deleteBtn");
     const updateBtn = document.getElementById("updateBtn");
@@ -103,6 +104,45 @@ window.addEventListener("DOMContentLoaded",function(){
 
     updateBtn.addEventListener("click",function(){
         updateModel.style.display = "flex";
+    });
+    const updatePopClose = document.getElementById("updatePopClose");
+    updatePopClose.addEventListener("click",function(){
+        updateModel.style.display = "none";
+    })
+
+
+    updateRoomForm.addEventListener("submit",async function(event){
+        event.preventDefault();
+        const apiRoot = "../../../backend/api/room/updateRoom.php";
+        const updateData = {
+            roomID : roomId,
+            roomName : updateRoomForm.roomName.value, 
+            type : updateRoomForm.roomType.value,
+            price : updateRoomForm.price.value,
+            bed_type : updateRoomForm.bedType.value,
+            occupancy : updateRoomForm.max_occupancy.value,
+            description : updateRoomForm.description.value,
+            short_description : updateRoomForm.short_description.value,
+            image1 : updateRoomForm.image_01.value,
+            image2 : updateRoomForm.image_02.value,
+            image3 : updateRoomForm.image_03.value,
+            status : updateRoomForm.status.value
+        }
+        const respond = await fetch(apiRoot,{
+            method : "POST",
+            headers : {
+                "Content-type":"application/json"
+            },
+            body: JSON.stringify(updateData)
+        });
+        const result = await respond.json();
+        if(!result.success){
+            alert("Operation Failed: "+result.message);
+        }
+        else{
+            location.reload();
+        }
+
     });
 });
 
