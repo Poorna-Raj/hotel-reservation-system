@@ -2,11 +2,13 @@ const apiRoot = "../../../backend/api/room/customer/roomView.php";
 let roomPrice = null;
 window.addEventListener("DOMContentLoaded",function(){
     const updateForm = document.getElementById("bookingModal");
+    const updateModel = document.getElementById("updatePopup");
     const bookingForm = this.document.getElementById("bookingForm");
     const checkinInput = bookingForm.checkin;
     const checkoutInput = bookingForm.checkout;
     const totalPriceDisplay = document.getElementById("total");
     const deleteBtn = this.document.getElementById("deleteBtn");
+    const updateBtn = document.getElementById("updateBtn");
     const params = new URLSearchParams(this.window.location.search);
     const roomId = params.get('id');
     if (!roomId) {
@@ -83,6 +85,10 @@ window.addEventListener("DOMContentLoaded",function(){
             alert("Operation Failed: ",result.message);
         }
 
+    });
+
+    updateBtn.addEventListener("click",function(){
+        updateModel.style.display = "flex";
     });
 });
 
