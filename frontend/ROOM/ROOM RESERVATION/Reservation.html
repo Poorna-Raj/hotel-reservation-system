@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Room Reservation | Elephant & Nature Resort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #2e7d32;
+      --secondary: #a5d6a7;
+      --bg: #f4f4f4;
+      --dark: #1b5e20;
+      --white: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+    }
+/*--------------------------------------------------- header css------------------------------------------------------- */
+    header {
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 3px #000;
+    }
+/*----------------------------------- search filter------------------------------------------------------- */
+    .filter-section {
+      background-color: var(--white);
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 1000px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .filter-section select,
+    .filter-section input {
+      padding: 12px 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      min-width: 180px;
+    }
+
+    .filter-section button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .filter-section button:hover {
+      background-color: var(--dark);
+    }
+
+    .room-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      padding: 0 20px;
+    }
+
+    .room-card {
+      background-color: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: row;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .room-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .room-card img {
+      width: 400px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .room-info {
+      padding: 20px;
+      flex: 1;
+    }
+
+    .room-info h3 {
+      margin: 0;
+      color: var(--primary);
+    }
+
+    .room-info p {
+      margin: 8px 0;
+      color: #555;
+    }
+
+    .room-info .price {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .room-info a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .room-info a:hover {
+      background-color: var(--dark);
+    }
+    
+            footer {
+    text-align: center;
+    padding: 2rem;
+    background: #002813;
+    color: #d1f2e5;
+    font-size: 0.9rem;
+}
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  background: rgba(34, 34, 34, 0.7);;
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 15px 30px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #22c55e;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-outline,
+.btn-fill {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-outline {
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: #14532d;
+}
+
+.btn-fill {
+  background: #22c55e;
+  color: white;
+}
+
+.btn-fill:hover {
+  background: #16a34a;
+}
+  </style>
+</head>
+<body>
+      <nav class="navbar">
+  <div class="navbar-container">
+    <a href="index.html" class="logo">Elephant & Nature Resort</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#discover">Discover</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <a href="login.html" class="btn-outline">Login</a>
+      <a href="register.html" class="btn-fill">Register</a>
+    </div>
+  </div>
+</nav>
+
+
+  <header>
+    <h1>Elephant & Nature Resort</h1>
+    <p>Tranquil Stays in the Heart of Anuradhapura</p>
+  </header>
+
+  <section class="filter-section">
+    <select name="room-type">
+      <option value="">Room Type</option>
+      <option value="deluxe">Deluxe</option>
+      <option value="standard">Standard</option>
+      <option value="suite">Suite</option>
+    </select>
+
+    <select name="bed-type">
+      <option value="">Bed Type</option>
+      <option value="single">Single</option>
+      <option value="double">Double</option>
+      <option value="king">King</option>
+    </select>
+
+    <input type="number" placeholder="Max Guests" min="1" />
+
+    <button onclick="filterRooms()">Search Rooms</button>
+  </section>
+
+  <section class="room-grid" id="roomGrid">
+    <div class="room-card">
+      <img src="https://images.unsplash.com/photo-1582719478250-dbe5d08c2846" alt="Deluxe Room"/>
+      <div class="room-info">
+        <h3>Deluxe Suite</h3>
+        <p>King Bed · Garden View · Free Wi-Fi · Balcony</p>
+        <p class="price">Rs. 18,000</p>
+        <a href="#">View Details</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <img src="https://images.unsplash.com/photo-1604147706284-0b68f74c0307" alt="Standard Room"/>
+      <div class="room-info">
+        <h3>Standard Room</h3>
+        <p>Double Bed · Balcony · Breakfast Included · A/C</p>
+        <p class="price">Rs. 12,000</p>
+        <a href="#">View Details</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <img src="https://images.unsplash.com/photo-1582719478174-d9921c1f253b" alt="Family Suite"/>
+      <div class="room-info">
+        <h3>Family Suite</h3>
+        <p>2 Queen Beds · Living Area · Kitchenette · Private Garden</p>
+        <p class="price">Rs. 22,000</p>
+        <a href="#">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Elephant & Nature Resort. All rights reserved.</p>
+</footer>
+
+  <script>
+    function filterRooms() {
+      alert("Room filter functionality can be added using JavaScript or backend integration.");
+    }
+  </script>
+
+</body>
+</html>

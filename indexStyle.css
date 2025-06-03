@@ -26,7 +26,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(34, 34, 34, 0.7);;
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 15px 30px;
@@ -86,7 +86,7 @@
 
 .btn-outline:hover {
   background: white;
-  color: #14532d;
+  color: #ffffff;
 }
 
 .btn-fill {
@@ -570,7 +570,7 @@
                     background-position: 600px 400px;
                 }
             }
-            /* footer section */
+            /* ------------------------------------------footer section------------------------ */
             footer {
     text-align: center;
     padding: 2rem;

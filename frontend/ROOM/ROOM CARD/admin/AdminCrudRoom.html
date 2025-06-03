@@ -62,7 +62,7 @@
         <div class="room-grid">
 
             <!-------------------------------------------- Add Room Empty Card-------------------------------------------->
-<div class="room-card add-room-card" onclick="openModal('addRoomModal')">
+<div class="room-card add-room-card" onclick="openPopup()">
   <div class="room-card-content">
     <div class="add-icon">+</div>
     <p>Add Room</p>
@@ -177,7 +177,76 @@
             </div>
         </div>
     </div>
+
     
+
+     <!---------------------------------------------------- pop up form----------------------------------------------------- -->
+
+  <div class="popup-overlay" id="popup">
+    <div class="popup-form">
+      <button class="close-btn" onclick="closePopup()">×</button>
+      <h2>Add Room</h2>
+      <form>
+        <label>Room Name</label>
+        <input type="text" placeholder="Enter room name" required />
+
+        <label>Room Type</label>
+        <select required>
+          <option value="">Select type</option>
+          <option>Single</option>
+          <option>Double</option>
+          <option>Suite</option>
+        </select>
+
+        <label>Price</label>
+        <input type="text" placeholder="Enter the room price" required />
+        
+        <label>Bed Type</label>
+        <select required>
+          <option value="">Select type</option>
+          <option>Single</option>
+          <option>Double</option>
+          <option>Suite</option>
+        </select>
+
+        <label for="max_occupancy" class="required">Maximum Occupancy</label>
+                            <input type="number" id="max_occupancy" name="max_occupancy" required min="1" max="10" placeholder="e.g. 2">
+
+      <label for="short_description" class="required">Short Description</label>
+                            <div class="textarea-wrapper">
+                                <textarea id="short_description" name="short_description" required placeholder="Brief summary of the room (will appear in listings)" maxlength="150"></textarea>
+                              
+                            </div>
+
+                             <label for="description">Full Description</label>
+                            <div class="textarea-wrapper">
+                                <textarea id="description" name="description" placeholder="Detailed description of the room and its amenities"></textarea>
+                                
+                            </div>
+
+                             <label for="image_01" class="required">Primary Image URL</label>
+                            <textarea id="image_01" name="image_01" required placeholder="Enter image URL or upload path"></textarea>
+
+                             <label for="image_02">Secondary Image URL</label>
+                            <textarea id="image_02" name="image_02" placeholder="Enter image URL or upload path"></textarea>
+
+                            <label for="image_03">Additional Image URL</label>
+                            <textarea id="image_03" name="image_03" placeholder="Enter image URL or upload path"></textarea>
+
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+
+     <script>
+    function openPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
 </body>
 
 </html>
