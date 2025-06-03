@@ -268,4 +268,104 @@
   background-color: #dc3545;
 }
 
-  
+  /* ---------------------------------room button action delete update---------------------------------- */
+  .room-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.room-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-update {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-update:hover {
+  background-color: #388e3c;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c62828;
+}
+/*------------------------------------------ update pop up-------------------------------------------------- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  color: #444;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+#updateForm label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+#updateForm input,
+#updateForm select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 0.3rem;
+}
+
+.btn-update-modal {
+  margin-top: 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-update-modal:hover {
+  background-color: var(--dark);
+}

@@ -88,6 +88,7 @@
 
       .room-container {
         max-width: 1800px;
+      
         margin: 40px auto;
         background: #fff;
         border-radius: var(--radius);
@@ -98,6 +99,7 @@
     
       .room-name {
         font-size: 2.5rem;
+        margin-top: 40px;
         font-weight: 600;
         margin-bottom: 10px;
       }
