@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Room Reservation | Elephant & Nature Resort</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
-  <style>
+  
     :root {
       --primary: #2e7d32;
       --secondary: #a5d6a7;
@@ -78,7 +71,7 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
-      max-width: 1200px;
+      max-width: 1700px;
       margin: 0 auto 50px;
       padding: 0 20px;
     }
@@ -224,93 +217,4 @@
 .btn-fill:hover {
   background: #16a34a;
 }
-  </style>
-</head>
-<body>
-      <nav class="navbar">
-  <div class="navbar-container">
-    <a href="index.html" class="logo">Elephant & Nature Resort</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#story">Our Story</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#discover">Discover</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-buttons">
-      <a href="login.html" class="btn-outline">Login</a>
-      <a href="register.html" class="btn-fill">Register</a>
-    </div>
-  </div>
-</nav>
-
-
-  <header>
-    <h1>Elephant & Nature Resort</h1>
-    <p>Tranquil Stays in the Heart of Anuradhapura</p>
-  </header>
-
-  <section class="filter-section">
-    <select name="room-type">
-      <option value="">Room Type</option>
-      <option value="deluxe">Deluxe</option>
-      <option value="standard">Standard</option>
-      <option value="suite">Suite</option>
-    </select>
-
-    <select name="bed-type">
-      <option value="">Bed Type</option>
-      <option value="single">Single</option>
-      <option value="double">Double</option>
-      <option value="king">King</option>
-    </select>
-
-    <input type="number" placeholder="Max Guests" min="1" />
-
-    <button onclick="filterRooms()">Search Rooms</button>
-  </section>
-
-  <section class="room-grid" id="roomGrid">
-    <div class="room-card">
-      <img src="https://images.unsplash.com/photo-1582719478250-dbe5d08c2846" alt="Deluxe Room"/>
-      <div class="room-info">
-        <h3>Deluxe Suite</h3>
-        <p>King Bed · Garden View · Free Wi-Fi · Balcony</p>
-        <p class="price">Rs. 18,000</p>
-        <a href="#">View Details</a>
-      </div>
-    </div>
-
-    <div class="room-card">
-      <img src="https://images.unsplash.com/photo-1604147706284-0b68f74c0307" alt="Standard Room"/>
-      <div class="room-info">
-        <h3>Standard Room</h3>
-        <p>Double Bed · Balcony · Breakfast Included · A/C</p>
-        <p class="price">Rs. 12,000</p>
-        <a href="#">View Details</a>
-      </div>
-    </div>
-
-    <div class="room-card">
-      <img src="https://images.unsplash.com/photo-1582719478174-d9921c1f253b" alt="Family Suite"/>
-      <div class="room-info">
-        <h3>Family Suite</h3>
-        <p>2 Queen Beds · Living Area · Kitchenette · Private Garden</p>
-        <p class="price">Rs. 22,000</p>
-        <a href="#">View Details</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Elephant & Nature Resort. All rights reserved.</p>
-</footer>
-
-  <script>
-    function filterRooms() {
-      alert("Room filter functionality can be added using JavaScript or backend integration.");
-    }
-  </script>
-
-</body>
-</html>
+  
