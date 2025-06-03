@@ -70,21 +70,35 @@ window.addEventListener("DOMContentLoaded",function(){
     checkinInput.addEventListener("change", updatePriceDisplay);
     checkoutInput.addEventListener("change", updatePriceDisplay);
 
-    deleteBtn.addEventListener("click",async function(){
+    deleteBtn.addEventListener("click",function(){
+        const deleteConfirm = document.getElementById("deletePopup");
+        deleteConfirm.style.display = "flex";
+    });
+    const makeDelete = this.document.getElementById("makeDelete");
+    const closeDelete = this.document.getElementById("closeDelete");
+
+    makeDelete.addEventListener("click",async function(){
         const apiRoot = "../../../backend/api/room/deleteRoom.php";
         const params = new URLSearchParams();
         if(roomId) params.append("roomID",roomId);
-        const response = await fetch(apiRoot + "?" + params);
+        const response = await fetch(apiRoot + "?" + params,{
+            method: "GET",
+            credentials: "include"
+        });
         const result = await response.json();
+        console.log(roomId);
 
         if(result.success){
             alert("Deletion Successfull");
             window.location.href="../ROOM CARD/AdminCrudRoom.html";
         }
         else{
-            alert("Operation Failed: ",result.message);
+            alert("Operation Failed: "+result.message);
         }
-
+    });
+    closeDelete.addEventListener("click",function(){
+        const deleteConfirm = document.getElementById("deletePopup");
+        deleteConfirm.style.display = "none";
     });
 
     updateBtn.addEventListener("click",function(){

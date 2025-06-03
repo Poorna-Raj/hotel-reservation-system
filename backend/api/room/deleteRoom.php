@@ -5,13 +5,6 @@
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
     try{
-        if (empty($_SESSION['user_id'])) {
-            echo json_encode([
-                "success" => false,
-                "message" => "Missing User ID"
-            ]);
-            exit;
-        }
         if($_SERVER['REQUEST_METHOD'] !== 'GET'){
             echo json_encode([
                 'success' => false,
