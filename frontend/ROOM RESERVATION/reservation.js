@@ -59,24 +59,3 @@ async function renderReservation(reservations){
         container.appendChild(card);
     });
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const roomGrid = document.getElementById('roomGrid');
-
-  roomGrid.addEventListener('click', (e) => {
-    const card = e.target.closest('.room-card');
-
-    if (e.target.classList.contains('btn-update')) {
-      const roomId = card.querySelector('h3').textContent;
-      alert(`Update functionality for Room ID: ${roomId}`);
-      // TODO: Replace with a modal or redirect to update page
-    }
-
-    if (e.target.classList.contains('btn-delete')) {
-      const confirmDelete = confirm('Are you sure you want to delete this reservation?');
-      if (confirmDelete) {
-        roomGrid.removeChild(card);
-        // TODO: Call backend API to delete reservation using its ID
-      }
-    }
-  });
-});
