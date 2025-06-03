@@ -23,13 +23,12 @@
         $image_01 = $data['image1'];
         $image_02 = $data['image2'];
         $image_03 = $data['image3'];
-        $status = $data['status'];
 
         $sql = 'INSERT INTO tblroom 
-                (room_name,type,price,bed_type,max_occupancy,description,short_description,image_01,image_02,image_03,status)
-                VALUES (?,?,?,?,?,?,?,?,?,?,?);';
+                (room_name,type,price,bed_type,max_occupancy,description,short_description,image_01,image_02,image_03)
+                VALUES (?,?,?,?,?,?,?,?,?,?);';
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssdsissssss",$room_name,$type,$price,$bed_type,$max_occupancy,$description,$short_description,$image_01,$image_02,$image_03,$status);
+        $stmt->bind_param("ssdsisssss",$room_name,$type,$price,$bed_type,$max_occupancy,$description,$short_description,$image_01,$image_02,$image_03);
         $stmt->execute();
         $roomID = $conn->insert_id;
         $stmt->close();
