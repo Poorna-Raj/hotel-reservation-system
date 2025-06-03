@@ -65,14 +65,24 @@
             z-index: 2;
         }
 
-        .registration-content {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow-y: auto;
-        }
+       .registration-content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;          /* enables scroll */
+    max-height: 90vh;          /* limit height */
+}
+.registration-content::-webkit-scrollbar {
+    width: 8px;
+}
+.registration-content::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 4px;
+}
+
+
 
         .registration-header {
             text-align: center;
