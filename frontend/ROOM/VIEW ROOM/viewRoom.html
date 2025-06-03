@@ -136,44 +136,65 @@
   <div class="popup-form">
     <h2>Update Room</h2>
     <form id="updateRoomForm">
-      <label for="roomName">Room Name:</label>
-      <input type="text" id="roomName" name="roomName" placeholder="e.g., Deluxe Suite" required>
+      <label>Room Name</label>
+            <input type="text" name="roomName" placeholder="Enter room name" required />
 
-      <label for="roomType">Room Type:</label>
-      <input type="text" id="roomType" name="roomType" placeholder="e.g., Double, King, Single" required>
+            <label>Room Type</label>
+            <select required name="roomType">
+            <option value="">Select type</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Standard">Standard</option>
+            <option value="Suite">Suite</option>
+            <option value="Family">Family</option>
+            </select>
 
-      <label for="roomPrice">Price:</label>
-      <input type="number" id="roomPrice" name="roomPrice" placeholder="e.g., 12000" required>
+            <label>Price</label>
+            <input type="text" name="price" placeholder="Enter the room price" required />
+            
+            <label>Bed Type</label>
+            <select required name="bedType">
+            <option value="">Select type</option>
+            <option value="Single">Single</option>
+            <option value="Double">Double</option>
+            <option value="Twin">Twin</option>
+            <option value="Queen">Queen</option>
+            <option value="King">King</option>
 
-      <label for="roomStatus">Room Status:</label>
-      <select id="roomStatus" name="roomStatus">
-        <option value="">Select status</option>
+            </select>
+
+            <label for="max_occupancy" class="required">Maximum Occupancy</label>
+                                <input type="number" id="max_occupancy" name="max_occupancy" required min="1" max="10" placeholder="e.g. 2">
+
+        <label for="short_description" class="required">Short Description</label>
+                                <div class="textarea-wrapper">
+                                    <textarea id="short_description" name="short_description" required placeholder="Brief summary of the room (will appear in listings)" maxlength="150"></textarea>
+                                
+                                </div>
+
+                                <label for="description">Full Description</label>
+                                <div class="textarea-wrapper">
+                                    <textarea id="description" name="description" placeholder="Detailed description of the room and its amenities"></textarea>
+                                    
+                                </div>
+
+                                <label for="image_01" class="required">Primary Image URL</label>
+                                <textarea id="image_01" name="image_01" required placeholder="Enter image URL or upload path"></textarea>
+
+                                <label for="image_02">Secondary Image URL</label>
+                                <textarea id="image_02" name="image_02" placeholder="Enter image URL or upload path"></textarea>
+
+                                <label for="image_03">Additional Image URL</label>
+                                <textarea id="image_03" name="image_03" placeholder="Enter image URL or upload path"></textarea>
+        <label for="status">Status</label>
+        <select name="status">
         <option value="Available">Available</option>
-        <option value="Occupied">Occupied</option>
-        <option value="Maintenance">Maintenance</option>
-      </select>
-
-      <label for="shortDescription">Short Description:</label>
-      <textarea id="shortDescription" name="shortDescription" rows="2" placeholder="e.g., Sea view, Queen-size bed"></textarea>
-
-      <label for="longDescription">Long Description:</label>
-      <textarea id="longDescription" name="longDescription" rows="4" placeholder="Detailed information about the room, services, and amenities."></textarea>
-
-       <label for="imageUrl">Image 01:</label>
-      <input type="text" id="image" name="image01" placeholder="Enter a Image URL" required>
-
-       <label for="imageUrl">Image 02:</label>
-      <input type="text" id="image" name="image01" placeholder="Enter a Image URL" required>
-
-       <label for="imageUrl">Image 03:</label>
-      <input type="text" id="image" name="image01" placeholder="Enter a Image URL" required>
-
-     
-      
+        <option value="Booked">Booked</option>
+        <option value="Repair">Repair</option>
+        </select>
 
       <div class="popup-buttons">
         <button type="submit">Save</button>
-        <button type="button" onclick="closePopup()">Cancel</button>
+        <button type="button" id="updatePopClose">Cancel</button>
       </div>
     </form>
   </div>
@@ -186,8 +207,8 @@
     <h2>Confirm Deletion</h2>
     <p>Are you sure you want to delete this room?</p>
     <div class="popup-buttons">
-      <button onclick="confirmDelete()">Yes, Delete</button>
-      <button onclick="closeDeletePopup()">Cancel</button>
+      <button id="makeDelete">Yes, Delete</button>
+      <button id="closeDelete">Cancel</button>
     </div>
   </div>
 </div>

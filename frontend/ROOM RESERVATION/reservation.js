@@ -31,7 +31,7 @@ async function renderReservation(reservations){
         card.querySelector(".check-in").textContent = reservation.check_in_date;
         card.querySelector(".check-out").textContent = reservation.check_out_date;
         card.querySelector('.price').textContent = 'Rs. ' + reservation.total_amount;
-        card.querySelector('.guest').textContent = reservation.total_amount;
+        card.querySelector('.guest').textContent = reservation.num_guest;
 
         if(reservation.payment_status === "Pending"){
             card.querySelector(".reservation.booked").textContent = "Pending";

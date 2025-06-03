@@ -13,7 +13,7 @@
         }
         $data = json_decode(file_get_contents('php://input'),true);
         $roomID = $data['roomID'];
-        $room_name = trim($data['name']);
+        $room_name = trim($data['roomName']);
         $type = trim($data['type']);
         $price = (double)$data['price'];
         $bed_type = $data['bed_type'];
