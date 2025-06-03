@@ -35,69 +35,46 @@
     <p>Tranquil Stays in the Heart of Anuradhapura</p>
   </header>
 
- <section class="filter-section">
-  <input type="text" name="room-id" placeholder="Room ID" />
+  <form id="filterForm">
+  <section class="filter-section">
+    <input type="text" name="room-id" placeholder="Room ID" />
 
-  <input type="date" name="check-in" placeholder="Check-in Date" />
-  
+    <input type="date" name="check-in" placeholder="Check-in Date" />
+    
 
-  <select name="payment-status">
-    <option value="">Payment Status</option>
-    <option value="pending">Pending</option>
-    <option value="paid">Paid</option>
-    <option value="cancelled">Cancelled</option>
-  </select>
+    <select name="payment-status">
+      <option value="">Payment Status</option>
+      <option value="pending">Pending</option>
+      <option value="paid">Paid</option>
+      <option value="cancelled">Cancelled</option>
+    </select>
 
-  <select name="reservation-status">
-    <option value="">Reservation Status</option>
-    <option value="booked">Booked</option>
-    <option value="checkedin">Checked In</option>
-    <option value="checkedout">Checked Out</option>
-    <option value="cancelled">Cancelled</option>
-  </select>
+    <select name="reservation-status">
+      <option value="">Reservation Status</option>
+      <option value="booked">Booked</option>
+      <option value="checkedin">Checked In</option>
+      <option value="checkedout">Checked Out</option>
+      <option value="cancelled">Cancelled</option>
+    </select>
 
-  <button onclick="filterRooms()">Search Reservations</button>
+    <button>Search Reservations</button>
+  </form>
 </section>
 
   <section class="room-grid" id="roomGrid">
-    <div class="room-card">
-      
-     <div class="room-info">
-  <div class="room-status">
-    <span class="reservation booked">Booked</span>
-    <span class="payment paid">Paid</span>
-  </div>
-  <h3>Deluxe Suite</h3>
-  <p>King Bed · Garden View · Free Wi-Fi · Balcony</p>
-  <p class="price">Rs. 18,000</p>
-</div>
-
-    </div>
-
-    <div class="room-card">
-     <div class="room-info">
-  <div class="room-status">
-    <span class="reservation booked">Booked</span>
-    <span class="payment cancelled">Cancelled</span>
-  </div>
-  <h3>Deluxe Suite</h3>
-  <p>King Bed · Garden View · Free Wi-Fi · Balcony</p>
-  <p class="price">Rs. 18,000</p>
-</div>
-
-    </div>
-
-    <div class="room-card">
+    <div class="room-card" id="reservation_template">
       
       <div class="room-info">
-  <div class="room-status">
-    <span class="reservation booked">Booked</span>
-    <span class="payment pending">Pending</span>
-  </div>
-  <h3>Deluxe Suite</h3>
-  <p>King Bed · Garden View · Free Wi-Fi · Balcony</p>
-  <p class="price">Rs. 18,000</p>
-</div>
+        <div class="room-status">
+          <span class="reservation booked"></span>
+          <span class="payment paid"></span>
+        </div>
+        <h3></h3>
+        <p class="check-in"></p>
+        <p class="check-out"></p>
+        <p class="guest"></p>
+        <p class="price"></p>
+      </div>
 
     </div>
   </section>
@@ -106,11 +83,7 @@
     <p>&copy; 2025 Elephant & Nature Resort. All rights reserved.</p>
 </footer>
 
-  <script>
-    function filterRooms() {
-      alert("Room filter functionality can be added using JavaScript or backend integration.");
-    }
-  </script>
+  <script src="reservation.js"></script>
 
 </body>
 </html>

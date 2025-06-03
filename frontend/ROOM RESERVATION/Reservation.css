@@ -81,7 +81,7 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      display: flex;
+      display: none;
       flex-direction: row;
       transition: transform 0.3s, box-shadow 0.3s;
     }
