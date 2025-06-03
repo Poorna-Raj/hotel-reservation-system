@@ -7,8 +7,6 @@
        
     </head>
     <body>
-        <script src="admin.js"></script>
-
         <nav class="navbar">
     <div class="logo">Elephant & Nature Resort</div>
     <ul>
@@ -64,7 +62,7 @@
         <div class="room-grid">
 
             <!-------------------------------------------- Add Room Empty Card-------------------------------------------->
-            <div class="room-card add-room-card" onclick="openModal('addRoomModal')">
+            <div class="room-card add-room-card" id="addRoomInterface">
                 <div class="room-card-content">
                     <div class="add-icon">+</div>
                     <p>Add Room</p>
@@ -98,29 +96,33 @@
     <!-- Pop up -->
     <div class="popup-overlay" id="popup">
         <div class="popup-form">
-            <button class="close-btn" onclick="closePopup()">×</button>
+            <button class="close-btn" id="addRoomClose">×</button>
             <h2>Add Room</h2>
-        <form>
+        <form id="addRoomForm">
             <label>Room Name</label>
-            <input type="text" placeholder="Enter room name" required />
+            <input type="text" name="roomName" placeholder="Enter room name" required />
 
             <label>Room Type</label>
-            <select required>
+            <select required name="roomType">
             <option value="">Select type</option>
-            <option>Single</option>
-            <option>Double</option>
-            <option>Suite</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Standard">Standard</option>
+            <option value="Suite">Suite</option>
+            <option value="Family">Family</option>
             </select>
 
             <label>Price</label>
-            <input type="text" placeholder="Enter the room price" required />
+            <input type="text" name="price" placeholder="Enter the room price" required />
             
             <label>Bed Type</label>
-            <select required>
+            <select required name="bedType">
             <option value="">Select type</option>
-            <option>Single</option>
-            <option>Double</option>
-            <option>Suite</option>
+            <option value="Single">Single</option>
+            <option value="Double">Double</option>
+            <option value="Twin">Twin</option>
+            <option value="Queen">Queen</option>
+            <option value="King">King</option>
+
             </select>
 
             <label for="max_occupancy" class="required">Maximum Occupancy</label>
@@ -152,15 +154,7 @@
         </div>
     </div>
 
-     <script>
-    function openPopup() {
-      document.getElementById('popup').style.display = 'flex';
-    }
-
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
-  </script>
+    <script src="admin.js"></script>
     
 </body>
 

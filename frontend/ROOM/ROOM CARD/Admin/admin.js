@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded",function(){
     const apiRoot = "../../../../backend/api/room/listView.php";
     const filterForm = document.getElementById("filterForm");
+    const addFormInit = document.getElementById("addRoomInterface");
+    const addForm = document.getElementById("popup");
+    const addFormClose = document.getElementById("addRoomClose");
+    const saveRoomForm = document.getElementById("addRoomForm");
+
     
     (async function(){
         const rooms = await loadRooms();
@@ -34,7 +39,44 @@ document.addEventListener("DOMContentLoaded",function(){
         }
     });
 
-    
+    addFormInit.addEventListener("click",function(){
+        addForm.style.display = "flex";
+    });
+    addFormClose.addEventListener("click",function(){
+        addForm.style.display = "none";
+    });
+
+    saveRoomForm.addEventListener("submit",async function(event){
+        event.preventDefault();
+        const roomData = {
+            name : saveRoomForm.roomName.value.trim(),
+            type : saveRoomForm.roomType.value,
+            price : saveRoomForm.price.value,
+            bed_type: saveRoomForm.bedType.value,
+            occupancy: saveRoomForm.max_occupancy.value,
+            description: saveRoomForm.description.value.trim(),
+            short_description: saveRoomForm.short_description.value.trim(),
+            image1: saveRoomForm.image_01.value.trim(),
+            image2: saveRoomForm.image_02.value.trim(),
+            image3: saveRoomForm.image_03.value.trim()
+        };
+        try{
+            const respond = await fetch("../../../../backend/api/room/addRoom.php",{
+                method: "POST",
+                headers: {
+                    "Content-type" : "application/json"
+                },
+                body : JSON.stringify(roomData)
+            });
+            const result = await respond.json();
+            if(result.success){
+                window.location.href="AdminCrudRoom.html";
+            }
+        }
+        catch(err){
+            console.error(err.message);
+        }
+    });
 });
 
 function clearRoomCards() {
