@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION = array();
+    session_unset();
     session_destroy();
-    exit;
+    echo json_encode(["success" => true]);
 ?>

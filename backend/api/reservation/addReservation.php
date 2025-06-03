@@ -1,9 +1,18 @@
 <?php
     header('Content-type:application/json');
     include '../../dbUtil.php';
+    session_start();
+    error_log("SESSION USER_ID: " . ($_SESSION['user_id'] ?? 'NOT SET'));
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
     try{
+        if (empty($_SESSION['user_id'])) {
+            echo json_encode([
+                "success" => false,
+                "message" => "Missing User ID"
+            ]);
+            exit;
+        }
         if($_SERVER['REQUEST_METHOD'] !== 'POST'){
             echo json_encode([
                 'success' => false,
@@ -14,7 +23,7 @@
         
         $data = json_decode(file_get_contents('php://input'),true);
 
-        $customer_id = $data['customer_id'];
+        $customer_id = $_SESSION['user_id'];
         $room_id = $data['roomID'];
         $inDate = $data['inDate'];
         $outDate = $data['outDate'];

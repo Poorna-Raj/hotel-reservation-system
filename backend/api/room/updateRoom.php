@@ -11,19 +11,8 @@
             ]);
             exit;
         }
-        else{
-            if(isset($_GET['roomID'])){
-                $roomID = $_GET['roomID'];
-            }
-            else{
-                echo json_encode([
-                    'success'=> false,
-                    'message'=> 'Room ID missing'
-                ]);
-                exit;
-            }
-        }
         $data = json_decode(file_get_contents('php://input'),true);
+        $roomID = $data['roomID'];
         $room_name = trim($data['name']);
         $type = trim($data['type']);
         $price = (double)$data['price'];

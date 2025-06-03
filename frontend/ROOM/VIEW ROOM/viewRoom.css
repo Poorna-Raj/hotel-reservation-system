@@ -428,6 +428,10 @@
 .delete-btn:hover {
   background-color: #c32f39;
 }
+.errorMessage{
+  color: red;
+  text-align: center;
+}
 
      /*-------------------------------------- update delete pop up form---------------------------------- */
      .popup-form-overlay {

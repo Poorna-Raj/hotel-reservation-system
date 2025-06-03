@@ -100,9 +100,9 @@
 <button id="bookNowBtn" class="book-now-btn">Book Now</button>
 
 <!---------------------------------------------------- Admin Action Buttons----------------------- -->
-<div class="admin-actions">
-  <button class="update-btn"><i class="fas fa-edit"></i> Update</button>
-  <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+<div class="admin-actions" id="adminFunc">
+  <button class="update-btn" id="updateBtn"><i class="fas fa-edit"></i> Update</button>
+  <button class="delete-btn" id="deleteBtn"><i class="fas fa-trash-alt"></i> Delete</button>
 </div>
 
 
@@ -113,17 +113,18 @@
     <h2>Book Your Stay</h2>
     <form id="bookingForm">
       <label for="checkIn">Check-In Date</label>
-      <input type="date" id="checkIn" required />
+      <input type="date" name="checkin" id="checkIn" required />
 
       <label for="checkOut">Check-Out Date</label>
-      <input type="date" id="checkOut" required />
+      <input type="date" id="checkOut" name="checkout" required />
 
       <label for="guests">Number of Guests</label>
-      <input type="number" id="guests" min="1" value="1" required />
+      <input type="number" id="guests" min="1" value="1" name="guest" required />
 
       <label for="total">Total</label>
-      <input type="text" id="total" readonly />
+      <input type="text" id="total" name="total" readonly />
 
+      <p id="errorMessage" class="errorMessage"></p>
       <button type="submit">Confirm Booking</button>
     </form>
   </div>
