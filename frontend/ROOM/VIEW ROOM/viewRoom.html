@@ -129,6 +129,69 @@
   </div>
 </div>
 
+<!-- -------------------------------------------update and form---------------------------------------------------- -->
+ <!-- Popup Form -->
+<div class="popup-form-overlay" id="updatePopup"> 
+  <div class="popup-form">
+    <h2>Update Room</h2>
+    <form id="updateRoomForm">
+      <label for="roomName">Room Name:</label>
+      <input type="text" id="roomName" name="roomName" placeholder="e.g., Deluxe Suite" required>
+
+      <label for="roomType">Room Type:</label>
+      <input type="text" id="roomType" name="roomType" placeholder="e.g., Double, King, Single" required>
+
+      <label for="roomPrice">Price:</label>
+      <input type="number" id="roomPrice" name="roomPrice" placeholder="e.g., 12000" required>
+
+      <label for="roomStatus">Room Status:</label>
+      <select id="roomStatus" name="roomStatus">
+        <option value="">Select status</option>
+        <option value="Available">Available</option>
+        <option value="Occupied">Occupied</option>
+        <option value="Maintenance">Maintenance</option>
+      </select>
+
+      <label for="shortDescription">Short Description:</label>
+      <textarea id="shortDescription" name="shortDescription" rows="2" placeholder="e.g., Sea view, Queen-size bed"></textarea>
+
+      <label for="longDescription">Long Description:</label>
+      <textarea id="longDescription" name="longDescription" rows="4" placeholder="Detailed information about the room, services, and amenities."></textarea>
+
+       <label for="imageUrl">Image 01:</label>
+      <input type="text" id="image" name="image01" placeholder="Enter a Image URL" required>
+
+       <label for="imageUrl">Image 02:</label>
+      <input type="text" id="image" name="image01" placeholder="Enter a Image URL" required>
+
+       <label for="imageUrl">Image 03:</label>
+      <input type="text" id="image" name="image01" placeholder="Enter a Image URL" required>
+
+     
+      
+
+      <div class="popup-buttons">
+        <button type="submit">Save</button>
+        <button type="button" onclick="closePopup()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ------------------------------------------ended here--------------------------------------------- -->
+ <!-- -----------------------------------Delete Confirmation Popup--------------------------------------->
+<div class="popup-form-overlay" id="deletePopup">
+  <div class="popup-form">
+    <h2>Confirm Deletion</h2>
+    <p>Are you sure you want to delete this room?</p>
+    <div class="popup-buttons">
+      <button onclick="confirmDelete()">Yes, Delete</button>
+      <button onclick="closeDeletePopup()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
         </div>
       </div>
     </div>
