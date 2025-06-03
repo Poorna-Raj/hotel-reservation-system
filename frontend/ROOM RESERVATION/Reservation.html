@@ -35,22 +35,8 @@
     <p>Tranquil Stays in the Heart of Anuradhapura</p>
   </header>
 
-  <section class="filter-section">
-  <select name="room-type">
-    <option value="">Room Type</option>
-    <option value="deluxe">Deluxe</option>
-    <option value="standard">Standard</option>
-    <option value="suite">Suite</option>
-  </select>
-
-  <select name="bed-type">
-    <option value="">Bed Type</option>
-    <option value="single">Single</option>
-    <option value="double">Double</option>
-    <option value="king">King</option>
-  </select>
-
-  <input type="number" placeholder="Max Guests" min="1" />
+ <section class="filter-section">
+  <input type="text" name="room-id" placeholder="Room ID" />
 
   <input type="date" name="check-in" placeholder="Check-in Date" />
   <input type="date" name="check-out" placeholder="Check-out Date" />
@@ -70,40 +56,49 @@
     <option value="cancelled">Cancelled</option>
   </select>
 
- 
-
-    <button onclick="filterRooms()">Search Rooms</button>
-  </section>
+  <button onclick="filterRooms()">Search Reservations</button>
+</section>
 
   <section class="room-grid" id="roomGrid">
     <div class="room-card">
       
-      <div class="room-info">
-        <h3>Deluxe Suite</h3>
-        <p>King Bed · Garden View · Free Wi-Fi · Balcony</p>
-        <p class="price">Rs. 18,000</p>
-        
-      </div>
+     <div class="room-info">
+  <div class="room-status">
+    <span class="reservation booked">Booked</span>
+    <span class="payment paid">Paid</span>
+  </div>
+  <h3>Deluxe Suite</h3>
+  <p>King Bed · Garden View · Free Wi-Fi · Balcony</p>
+  <p class="price">Rs. 18,000</p>
+</div>
+
     </div>
 
     <div class="room-card">
-     
-      <div class="room-info">
-        <h3>Standard Room</h3>
-        <p>Double Bed · Balcony · Breakfast Included · A/C</p>
-        <p class="price">Rs. 12,000</p>
-       
-      </div>
+     <div class="room-info">
+  <div class="room-status">
+    <span class="reservation booked">Booked</span>
+    <span class="payment cancelled">Cancelled</span>
+  </div>
+  <h3>Deluxe Suite</h3>
+  <p>King Bed · Garden View · Free Wi-Fi · Balcony</p>
+  <p class="price">Rs. 18,000</p>
+</div>
+
     </div>
 
     <div class="room-card">
       
       <div class="room-info">
-        <h3>Family Suite</h3>
-        <p>2 Queen Beds · Living Area · Kitchenette · Private Garden</p>
-        <p class="price">Rs. 22,000</p>
-       
-      </div>
+  <div class="room-status">
+    <span class="reservation booked">Booked</span>
+    <span class="payment pending">Pending</span>
+  </div>
+  <h3>Deluxe Suite</h3>
+  <p>King Bed · Garden View · Free Wi-Fi · Balcony</p>
+  <p class="price">Rs. 18,000</p>
+</div>
+
     </div>
   </section>
 
