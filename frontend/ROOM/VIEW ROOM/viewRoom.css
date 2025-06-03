@@ -434,7 +434,7 @@
 }
 
      /*-------------------------------------- update delete pop up form---------------------------------- */
-     .popup-form-overlay {
+    .popup-form-overlay {
   display: none;
   position: fixed;
   top: 0; left: 0;
@@ -447,8 +447,8 @@
 
 .popup-form {
   background: #fff;
-  padding: 20px;
-  width: 400px;
+  padding: 25px;
+  width: 750px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   animation: popupFade 0.3s ease;
@@ -461,45 +461,73 @@
 
 .popup-form h2 {
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.full-width {
+  grid-column: span 2;
 }
 
 .popup-form label {
   display: block;
-  margin-top: 10px;
-  font-weight: bold;
+  margin-bottom: 5px;
+  font-weight: 600;
 }
 
 .popup-form input,
 .popup-form select,
 .popup-form textarea {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
+  padding: 8px 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  font-size: 0.95rem;
 }
 
 .popup-buttons {
-  margin-top: 20px;
+  margin-top: 25px;
   display: flex;
   justify-content: space-between;
 }
 
 .popup-buttons button {
-  padding: 8px 15px;
+  padding: 10px 20px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .popup-buttons button[type="submit"] {
-  background-color: #11a34d;
+  background-color: #0f8b46;
   color: white;
 }
 
 .popup-buttons button[type="button"] {
   background-color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .popup-form {
+    width: 90%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .popup-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
       
