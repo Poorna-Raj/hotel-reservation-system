@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const updateModal = document.querySelector(".modal-overlay");
   const updateForm = document.getElementById("updateForm");
   const updateBtn = document.querySelector(".btn-update");
+  const logoutBtn = document.querySelector(".logout-btn");
 
   // Load and render reservations on initial page load
   (async function () {
@@ -44,10 +45,22 @@ window.addEventListener("DOMContentLoaded", function () {
     renderReservation(result.data);
   }
 
-});
+  });
   updateBtn.addEventListener("click",function(){
     updateModal.style.display = "flex";
   })
+  logoutBtn.addEventListener("click",async function() {
+    const apiRoot = "../backend/auth/logout.php";
+    const respond = await fetch(apiRoot);
+    const result = await respond.json();
+
+    if(result.success){
+        window.location.href = "../../../index.html";
+    }
+    else{
+        alert("Logout Failed");
+    }
+  });
 });
 
 async function loadReservation() {
