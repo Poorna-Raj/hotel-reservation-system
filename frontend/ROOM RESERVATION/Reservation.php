@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Room Reservation | Elephant & Nature Resort</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="Reservation.css"/>
+  <link rel="stylesheet" href="Reservation.css"/>
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <meta name="description" content="Book your stay at Elephant & Nature Resort. Explore our luxurious rooms and serene environment in Anuradhapura, Sri Lanka.">
   <meta name="keywords" content="Elephant & Nature Resort, Room Reservation, Anuradhapura, Sri Lanka, Luxury Rooms, Eco-Friendly Resort">
@@ -55,7 +55,7 @@
         </div>
         <h3></h3>
 
-         <label>Check-in Date:</label
+         <label>Check-in Date:</label>
         <p class="check-in"></p>
 
         <label>Check-out Date:</label>
@@ -92,6 +92,9 @@
 
       <label>Guests:</label>
       <input type="number" name="guests" min="1" required />
+
+      <label>Price:</label>
+      <input type="text" name="price"required />
 
       <label>Payment Status:</label>
       <select name="payment">

@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const searchForm = document.getElementById("filterForm");
   const updateModal = document.querySelector(".modal-overlay");
   const updateForm = document.getElementById("updateForm");
+  const updateBtn = document.querySelector(".btn-update");
 
   // Load and render reservations on initial page load
   (async function () {
@@ -26,6 +27,8 @@ window.addEventListener("DOMContentLoaded", function () {
   const payStatus = searchForm.querySelector('[name="payment-status"]').value;
   const reservationStatus = searchForm.querySelector('[name="reservation-status"]').value;
 
+
+
   if (checkin) params.append("inDate", checkin);
   if (roomID) params.append("roomID", roomID);
   if (payStatus) params.append("payStatus", payStatus);
@@ -40,8 +43,11 @@ window.addEventListener("DOMContentLoaded", function () {
     clearReservationCards();
     renderReservation(result.data);
   }
-});
 
+});
+  updateBtn.addEventListener("click",function(){
+    updateModal.style.display = "flex";
+  })
 });
 
 async function loadReservation() {
