@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function(){
     const emailForm = document.getElementById("sendEmail");
 
     btnBook.addEventListener("click",function(){
-        window.location.href="frontend/ROOM/ROOM CARD/Roomcard.html";
+        window.location.href="frontend/ROOM/ROOM CARD/Roomcard.php";
     });
 
     btnLog.addEventListener("click",function(){
-        window.location.href="frontend/Auth/LOGIN/login.html";
+        window.location.href="frontend/Auth/LOGIN/login.php";
     });
 
     emailForm.addEventListener("submit",async function(event){

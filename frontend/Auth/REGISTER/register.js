@@ -1,63 +1,98 @@
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
     const registerForm = document.getElementById('registrationForm');
-    const errorMessage = document.getElementById('errorMessage')
+    const errorMessage = document.getElementById('errorMessage');
 
-    registerForm.addEventListener("submit", async function(event){
+    registerForm.addEventListener("submit", async function (event) {
         event.preventDefault();
-        email = registerForm.email.value.trim();
-        number = registerForm.tele.value.trim();
+
+        // Clear previous error message
+        errorMessage.textContent = "";
+        errorMessage.style.display = "none";
+
+        // Collect and trim form data
+        const email = registerForm.email.value.trim();
+        const number = registerForm.tele.value.trim();
+        const password = registerForm.pass1.value.trim(); 
+        const confirmPassword = registerForm.conpass.value.trim(); 
+        const fullName = registerForm.fullname.value.trim();
+        const nic = registerForm.nic.value.trim();
+        const address = registerForm.address.value.trim();
+
         const apiPath = "../../../backend/api/auth/api_register.php";
-        if(!validateEmail(email)){
-            errorMessage.textContent = "Please enter a valid email address.";
-            errorMessage.style.display = "block";
-            return;
+
+        // Begin validation
+        if (!validateEmail(email)) {
+            return showError("Please enter a valid email address.");
         }
-        if(!validatePhoneNumber(number)){
-            errorMessage.textContent = "Please enter a valid phone number.";
-            errorMessage.style.display = "block";
-            return;
+
+        if (!validatePhoneNumber(number)) {
+            return showError("Please enter a valid phone number.");
         }
+
+        if (password.length < 6) {
+            return showError("Password must be at least 6 characters long.");
+        }
+
+        if (password !== confirmPassword) {
+            return showError("Passwords do not match.");
+        }
+
+        if (fullName === "") {
+            return showError("Full name is required.");
+        }
+
+        if (nic === "") {
+            return showError("NIC is required.");
+        }
+
+        if (address === "") {
+            return showError("Address is required.");
+        }
+
+        // All good, send to backend
         const registerData = {
-            email : registerForm.email.value.trim(),
-            password : registerForm.conpass.value.trim(),
-            full_name : registerForm.fullname.value.trim(),
-            nic : registerForm.nic.value.trim(),
-            tel_number : registerForm.tele.value.trim(),
-            address : registerForm.address.value.trim()
+            email: email,
+            password: password,
+            full_name: fullName,
+            nic: nic,
+            tel_number: number,
+            address: address
         };
 
-        try{
-            const request = await fetch(apiPath,{
-                method : "POST",
-                headers : {
-                    "Content-type":"application/json"
+        try {
+            const request = await fetch(apiPath, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
                 },
-                body : JSON.stringify(registerData)
+                body: JSON.stringify(registerData)
             });
 
             const response = await request.json();
-            if(response.success){
-                window.location.href="../LOGIN/login.html";
+
+            if (response.success) {
+                window.location.href = "../LOGIN/login.php";
+            } else {
+                showError(response.message || "Registration failed.");
             }
-            else{
-                errorMessage.textContent = response.message;
-                errorMessage.style.display = "block";
-            }
-        }
-        catch(error){
-            errorMessage.textContent = error.message;
-            errorMessage.style.display = "block";
-            console.log(error);
+        } catch (error) {
+            showError("Something went wrong: " + error.message);
+            console.error(error);
         }
     });
 
-    function validateEmail(email){
+    function showError(msg) {
+        errorMessage.textContent = msg;
+        errorMessage.style.display = "block";
+    }
+
+    function validateEmail(email) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailPattern.test(email);
     }
+
     function validatePhoneNumber(phone) {
         const phonePattern = /^\+?\d{7,15}$/;
         return phonePattern.test(phone.replace(/[\s-]/g, ""));
     }
-
 });

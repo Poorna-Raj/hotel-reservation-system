@@ -54,7 +54,7 @@
             </form>
 
             <div class="login-footer">
-                <p>Don't have an account? <a href="../REGISTER/Register.html"> visit register</a></p>
+                <p>Don't have an account? <a href="../REGISTER/Register.php"> visit register</a></p>
             </div>
         </div>
     </div>

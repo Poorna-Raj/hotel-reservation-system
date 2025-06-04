@@ -52,10 +52,10 @@ document.addEventListener('DOMContentLoaded',function(){
 
             if(data.success){
                 if(data.role === "admin"){
-                    window.location.href="../../ROOM/ROOM CARD/Admin/AdminCrudRoom.html";
+                    window.location.href="../../ROOM/ROOM CARD/Admin/AdminCrudRoom.php";
                 }
                 else if (data.role === "customer"){
-                    window.location.href="../../ROOM/ROOM CARD/Roomcard.html";
+                    window.location.href="../../ROOM/ROOM CARD/Roomcard.php";
                 }
                 
             }

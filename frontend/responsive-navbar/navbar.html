@@ -118,14 +118,14 @@
   <div class="nav-left">
     <a href="#" class="logo">Elephant & Nature</a>
     <div class="nav-links" id="navLinks">
-      <a href="#home" class="active">Home</a>
-      <a href="#news">Accomadation</a>
+      <a href="../../../index.html" class="active">Home</a>
+      <a href="../../ROOM/ROOM CARD/Roomcard.php">Accomadation</a>
       <a href="#contact">Reservation</a>
-      <a href="#about">About</a>
+      <a href="../../About us page/aboutuspage.html">About</a>
     </div>
   </div>
   <div class="nav-right">
-    <a href="#" class="logout-btn">Logout</a>
+    <a onclick="logout();" class="logout-btn">Logout</a>
     <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
       <i class="fa fa-bars"></i>
     </a>
@@ -136,6 +136,19 @@
 <script>
 function toggleNav() {
   document.getElementById("myTopnav").classList.toggle("responsive");
+}
+async function logout(){
+  console.log("You click me");
+  const apiRoot = "../../../backend/api/auth/logout.php";
+  const respond = await fetch(apiRoot);
+  const result = await respond.json();
+
+  if(result.success){
+    window.location.href="../../../index.html";
+  }
+  else{
+    alert("Logout Failed!");
+  }
 }
 </script>
 
