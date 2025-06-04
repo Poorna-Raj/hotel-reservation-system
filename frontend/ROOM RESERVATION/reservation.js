@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", function () {
   const searchForm = document.getElementById("filterForm");
   const updateModal = document.querySelector(".modal-overlay");
+    const updateForm = document.getElementById("updateForm");
 
   // Load and render reservations on initial page load
   (async function () {
@@ -25,7 +26,7 @@ window.addEventListener("DOMContentLoaded", function () {
     if (searchForm.paymentStatus.value) params.append("payStatus", searchForm.paymentStatus.value);
     if (searchForm.reservationStatus.value) params.append("reservationStatus", searchForm.reservationStatus.value);
 
-    const response = await fetch(apiRoot + "?" + params);
+    const response = await fetch(apiRoot + "?" + params.toString());
     const result = await response.json();
 
     if (!result.success) {
@@ -99,47 +100,52 @@ function openUpdateModal(reservation) {
   const modal = document.querySelector(".modal-overlay");
   const form = modal.querySelector("#updateForm");
 
-  // Pre-fill the form
-  form.elements["room-id"].value = reservation.id;
-  form.elements["checkin"].value = reservation.check_in_date;
-  form.elements["checkout"].value = reservation.check_out_date;
-  form.elements["guests"].value = reservation.num_guest;
-  form.elements["payment"].value = reservation.payment_status.toLowerCase();
-  form.elements["reservation"].value = reservation.reservation_status.toLowerCase();
+    // Pre-fill the form fields safely using querySelector
+    form.querySelector('input[name="room-id"]').value = reservation.id;
+    form.querySelector('input[name="checkin"]').value = reservation.check_in_date;
+    form.querySelector('input[name="checkout"]').value = reservation.check_out_date;
+    form.querySelector('input[name="price"]').value = reservation.total_amount;
+    form.querySelector('input[name="guests"]').value = reservation.num_guest;
+    form.querySelector('select[name="payment"]').value = reservation.payment_status.toLowerCase();
+    form.querySelector('select[name="reservation"]').value = reservation.reservation_status.toLowerCase();
 
-  modal.style.display = "flex";
+    modal.style.display = "flex";
 
-  // Close modal
-  document.getElementById("closeModal").onclick = () => {
-    modal.style.display = "none";
-  };
+    document.getElementById("closeModal").onclick = () => {
+        modal.style.display = "none";
+    }
+    const updateForm = document.querySelector("#updateForm");
+    updateForm.addEventListener("submit", async function(e){
+        e.preventDefault();
+        const reservationData = {
+        reserveID: form.elements["room-id"].value,
+        inDate: form.elements["checkin"].value,
+        outDate: form.elements["checkout"].value,
+        total: form.elements["price"].value,
+        num_of_guest: form.elements["guests"].value,
+        payStatus: form.elements["payment"].value.toUpperCase(),
+        reserveStatus: form.elements["reservation"].value.toUpperCase(),
+        };
+        const response = await fetch("../../backend/api/reservation/updateReservation.php", {
+        method: "POST",
+        body: JSON.stringify(reservationData),
+        headers: {
+            "Content-Type": "application/json"
+        }
+        });
 
-  // Handle Update Submission
-  form.onsubmit = async function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    const response = await fetch("../../backend/api/reservation/updateReservation.php", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
+        const result = await response.json();
+        if (result.success) {
+        alert("Reservation updated successfully!");
+        modal.style.display = "none";
+        clearReservationCards();
+        const reservations = await loadReservation();
+        renderReservation(reservations);
+        } else {
+        alert("Failed to update reservation: " + result.message);
+        }
     });
 
-    const result = await response.json();
-    if (result.success) {
-      alert("Reservation updated successfully!");
-      modal.style.display = "none";
-      clearReservationCards();
-      const reservations = await loadReservation();
-      renderReservation(reservations);
-    } else {
-      alert("Failed to update reservation: " + result.message);
-    }
-  };
 }
 
 async function deleteReservation(id) {

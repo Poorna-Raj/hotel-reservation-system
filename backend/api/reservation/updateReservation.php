@@ -15,7 +15,6 @@
         $data = json_decode(file_get_contents('php://input'), true);
         
         $reservID = $data['reserveID'];
-        $roomID = $data['roomID'];
         $inDate = trim($data['inDate']);
         $outDate = trim($data['outDate']);
         $guests = $data['num_of_guest'];
@@ -24,7 +23,6 @@
         $reserveStatus = $data['reserveStatus'];
 
         $sql = 'UPDATE tblreservation SET 
-                                    room_id = ?,
                                     check_in_date = ?,
                                     check_out_date = ?,
                                     num_guest = ?,
@@ -33,7 +31,7 @@
                                     reservation_status = ?
                                     WHERE id = ?';
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('issidssi', $roomID,$inDate,$outDate,$guests,$total,$payStatus,$reserveStatus,$reservID);
+        $stmt->bind_param('ssidssi',$inDate,$outDate,$guests,$total,$payStatus,$reserveStatus,$reservID);
         $stmt->execute();
         if($stmt->affected_rows > 0){
             echo json_encode([
