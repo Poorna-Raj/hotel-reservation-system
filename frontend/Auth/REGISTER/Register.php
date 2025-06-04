@@ -69,7 +69,6 @@
                 </div>
 
                 <div id="errorMessage" class="error-message">
-                    Invalid username or password
                 </div>
 
                 <button type="submit" class="register-btn">

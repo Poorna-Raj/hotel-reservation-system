@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
             const response = await request.json();
             if(response.success){
-                window.location.href="../LOGIN/login.html";
+                window.location.href="../LOGIN/login.php";
             }
             else{
                 errorMessage.textContent = response.message;
