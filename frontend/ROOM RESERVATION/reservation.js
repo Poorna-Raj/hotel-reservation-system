@@ -55,7 +55,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const result = await respond.json();
 
     if(result.success){
-        window.location.href = "../../../index.html";
+        window.location.href = "../../index.html";
     }
     else{
         alert("Logout Failed");
