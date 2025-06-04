@@ -256,3 +256,7 @@ async function checkUser() {
     window.location.href = "../Auth/LOGIN/login.php";
   }
 }
+// ------------------------------------------LOG OUT FUNCTION----------------------------
+function toggleNav() {
+  document.getElementById("myTopnav").classList.toggle("responsive");
+}
