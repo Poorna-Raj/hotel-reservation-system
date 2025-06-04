@@ -9,6 +9,10 @@
     
 </head>
 <body>
+   <?php include '../../responsive-navbar/nav.html'; ?>
+
+
+
     <script src="loginScript.js"></script>
     <div class="login-wrapper">
         <div class="login-image" id="randomImageContainer">

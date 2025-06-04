@@ -7,21 +7,8 @@
        
     </head>
     <body>
-        <nav class="navbar">
-    <div class="logo">Elephant & Nature Resort</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Logout</a></li>
-    </ul>
+       <?php include '../../../responsive-navbar/navbar.html'; ?>
 
-      <div class="profile">
-        <img src="../../Assets/ROOM IMAGE/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" alt="Profile Picture">
-        <span>John Doe</span>
-      </div>
-  </nav>
 
     <div class="container">
 

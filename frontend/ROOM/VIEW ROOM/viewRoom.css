@@ -21,6 +21,8 @@
         color: var(--text);
         background: linear-gradient(to right, #f6f6f6, #fff);
       }
+
+      /*------------------------------------- navi bar------------------------------------- */
        .navbar 
         {
             background: rgba(34, 34, 34, 0.7);;
@@ -147,7 +149,7 @@
       .side-images img {
         flex: 1;
       }
-      /* — Details —*/
+      /* —------------------------------------------------- Details-------------------------------------------------- —*/
       .room-details {
         display: flex;
         padding: 30px;
@@ -182,7 +184,7 @@
         margin-top: 20px;
         color: #555;
       }
-      /* — Price & booking —*/
+      /* —------------------------------------- Price & booking —*/
       .price-section {
         text-align: center;
         margin-bottom: 25px;
@@ -219,7 +221,7 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
       }
-      /* — Amenities & status —*/
+      /* —--------------------------------- Amenities & status-------------------------------------- —*/
       .amenities {
         display: flex;
         flex-wrap: wrap;
@@ -251,7 +253,7 @@
         background: #e74c3c;
         color: #fff;
       }
-      /* — Responsive —*/
+      /* —----------------------------------------------- Responsive----------------------------------- —*/
       @media (max-width: 992px) {
         .room-details {
           flex-direction: column;

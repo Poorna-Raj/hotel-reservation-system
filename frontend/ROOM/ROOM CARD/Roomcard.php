@@ -7,23 +7,7 @@
        
     </head>
     <body>
-    <nav class="navbar">
-        <div class="navbar-container">
-        <a href="../../../index.html" class="logo">Elephant & Nature Resort</a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#discover">Discover</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-            <div class="profile">
-                <img src="../../Assets/ROOM IMAGE/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" alt="Profile Picture">
-                <span>John Doe</span>
-            </div>
-        </div>
-    </nav>
-
+    <?php include '../../../responsive-navbar/navbar.html'; ?>
     <div class="container">
         <div class="filter-search">
             <form id="filterForm">
