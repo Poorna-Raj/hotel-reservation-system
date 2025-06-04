@@ -152,9 +152,12 @@ async function deleteReservation(id) {
   const confirmDelete = confirm("Are you sure you want to delete this reservation?");
   if (!confirmDelete) return;
 
+  const deleteData = {
+    reservationID : id
+  }
   const response = await fetch("../../backend/api/reservation/deleteReservation.php", {
     method: "POST",
-    body: JSON.stringify({ id }),
+    body: JSON.stringify(deleteData),
     headers: {
       "Content-Type": "application/json"
     }
