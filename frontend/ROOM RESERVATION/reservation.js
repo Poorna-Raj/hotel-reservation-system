@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", function () {
     updateModal.style.display = "flex";
   })
   logoutBtn.addEventListener("click",async function() {
-    const apiRoot = "../backend/auth/logout.php";
+    const apiRoot = "../../backend/api/auth/logout.php";
     const respond = await fetch(apiRoot);
     const result = await respond.json();
 
