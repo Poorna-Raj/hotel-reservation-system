@@ -106,8 +106,7 @@ window.addEventListener("DOMContentLoaded",function(){
         console.log(roomId);
 
         if(result.success){
-            alert("Deletion Successfull");
-            window.location.href="../ROOM CARD/AdminCrudRoom.html";
+            window.location.href="../ROOM CARD/admin/AdminCrudRoom.php";
         }
         else{
             alert("Operation Failed: "+result.message);
