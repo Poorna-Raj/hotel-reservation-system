@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded',function(){
     const passwordToggle = document.getElementById('togglePassword');
     const passwordField = document.getElementById('password');
     const loginForm = document.getElementById('loginForm');
-    const username = document.getElementById('username');
-    const password = document.getElementById('password');
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
     const errorMessage = document.getElementById('errorMessage');
 
     
@@ -24,8 +24,17 @@ document.addEventListener('DOMContentLoaded',function(){
         const logPassword = document.getElementById('password').value.trim();
         const apiPath = "../../../backend/api/auth/api_login.php";
 
+        // Clear previous error message
+        errorMessage.textContent = "";
+        errorMessage.style.display = "none";
+
         if(!validateEmail(logUsername)){
             errorMessage.textContent = "Please enter a valid email address.";
+            errorMessage.style.display = "block";
+            return;
+        }
+        if(empty(logPassword)){
+            errorMessage.textContent = "Please enter a password.";
             errorMessage.style.display = "block";
             return;
         }

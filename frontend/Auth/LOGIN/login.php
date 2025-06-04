@@ -49,7 +49,6 @@
                 </button>
 
                 <div id="errorMessage" class="error-message">
-                    Invalid username or password
                 </div>
             </form>
 
