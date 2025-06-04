@@ -96,3 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return phonePattern.test(phone.replace(/[\s-]/g, ""));
     }
 });
+// navigate to the registration page
+function toggleNav() {
+    document.getElementById("myTopnav").classList.toggle("responsive");
+  }

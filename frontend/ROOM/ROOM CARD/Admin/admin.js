@@ -142,3 +142,20 @@ function popupClose(){
     const addForm = document.getElementById("popup");
     addForm.style.display = "none";
 }
+//------------------------------------- LOGOUT FUNCTION-----------------------------
+function toggleNav() {
+  document.getElementById("myTopnav").classList.toggle("responsive");
+}
+async function logout(){
+  console.log("You click me");
+  const apiRoot = "../../backend/api/auth/logout.php";
+  const respond = await fetch(apiRoot);
+  const result = await respond.json();
+
+  if(result.success){
+    window.location.href="../../index.html";
+  }
+  else{
+    alert("Logout Failed!");
+  }
+}

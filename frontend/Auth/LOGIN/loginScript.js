@@ -85,3 +85,7 @@ document.addEventListener('DOMContentLoaded',function(){
     }
     
 });
+// navigate to the registration page
+function toggleNav() {
+    document.getElementById("myTopnav").classList.toggle("responsive");
+  }
