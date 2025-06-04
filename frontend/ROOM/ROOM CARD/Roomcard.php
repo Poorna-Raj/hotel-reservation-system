@@ -7,7 +7,34 @@
        
     </head>
     <body>
-    <?php include '../../responsive-navbar/navbar.html'; ?>
+    
+    <div class="topnav" id="myTopnav">
+  <div class="nav-left">
+    <a href="#" class="logo">Elephant & Nature</a>
+    <div class="nav-links" id="navLinks">
+      <a href="../../../index.html" class="active">Home</a>
+      <a href="../../ROOM/ROOM CARD/Roomcard.php">Accomadation</a>
+      <a href="../../ROOM RESERVATION/Reservation.php">Reservation</a>
+      <a href="../../About us page/aboutuspage.php">About</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <a onclick="logout();" class="logout-btn">Logout</a>
+    <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
     <div class="container">
         <div class="filter-search">
             <form id="filterForm">

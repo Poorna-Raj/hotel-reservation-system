@@ -11,7 +11,21 @@
 <body>
   
   <!------------------------------------------------ Navigation Bar -->
- <?php include '../responsive-navbar/nav.html'; ?>
+ <div class="topnav" id="myTopnav">
+  <div class="nav-left">
+    <a href="#" class="logo">Elephant & Nature Resort</a>
+    <div class="nav-links" id="navLinks">
+      <a href="../../index.html" class="active">Home</a>
+      <a href="../../ROOM/ROOM CARD/Roomcard.php">Accomadation</a>
+     
+      <a href="../About us page/aboutuspage.php">About</a>
+    </div>
+  </div>
+
+  <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
 
   <!------------------------------------------------------------------------------------------------->
   <div class="container">
@@ -134,6 +148,10 @@
     sections.forEach(section => {
       observer.observe(section);
     });
+    
+  function toggleNav() {
+    document.getElementById("myTopnav").classList.toggle("responsive");
+  }
   </script>
 </body>
 </html>

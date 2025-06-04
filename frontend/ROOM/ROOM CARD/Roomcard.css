@@ -31,62 +31,102 @@
             padding: 20px;
         }
        
-        .navbar {
+        .topnav {
   position: fixed;
-  top: 20px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: 95%;
-  background: rgba(34, 34, 34, 0.7);;
+  max-width: 1800px;
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 15px 30px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-  z-index: 1000;
-}
-
-.navbar-container {
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 8px 20px;
+  z-index: 999;
+  color: #fff;
 }
 
-.logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
-.nav-links li a {
+.nav-links a {
   color: white;
+  padding: 10px 15px;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  border-radius: 10px;
+  transition: background 0.3s;
 }
 
-.nav-links li a:hover {
-  color: #22c55e;
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
+.nav-links a.active {
+  background-color: #04AA6D;
+  font-weight: bold;
+}
 
-    .profile img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
+.logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-weight: bold;
+}
 
-    .profile span {
-      font-size: 14px;
-      color: white;
-    }
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.icon {
+  display: none;
+  font-size: 22px;
+  color: white;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.logo {
+  font-weight: bold;
+  color: white;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    padding: 10px;
+  }
+
+  .topnav.responsive .nav-links {
+    display: flex;
+  }
+
+  .icon {
+    display: block;
+  }
+}
 
         header p {
             font-size: 1.2rem;
