@@ -11,18 +11,7 @@
 <body>
   
   <!------------------------------------------------ Navigation Bar -->
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="/index.html" class="logo">Elephant & Nature Resort</a>
-    <ul class="nav-links">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="#our-story">Our Story</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#discover">Discover</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+ <?php include '../responsive-navbar/nav.html'; ?>
 
   <!------------------------------------------------------------------------------------------------->
   <div class="container">
