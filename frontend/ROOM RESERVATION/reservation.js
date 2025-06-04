@@ -16,26 +16,32 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // Handle search form submission
   searchForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const apiRoot = "../../backend/api/reservation/reservation.php";
-    const params = new URLSearchParams();
+  const apiRoot = "../../backend/api/reservation/reservation.php";
+  const params = new URLSearchParams();
 
-    if (searchForm.checkin.value) params.append("inDate", searchForm.checkin.value);
-    if (searchForm.roomid.value) params.append("roomID", searchForm.roomid.value);
-    if (searchForm.paymentStatus.value) params.append("payStatus", searchForm.paymentStatus.value);
-    if (searchForm.reservationStatus.value) params.append("reservationStatus", searchForm.reservationStatus.value);
+  const checkin = searchForm.querySelector('[name="check-in"]').value;
+  const roomID = searchForm.querySelector('[name="room-id"]').value;
+  const payStatus = searchForm.querySelector('[name="payment-status"]').value;
+  const reservationStatus = searchForm.querySelector('[name="reservation-status"]').value;
 
-    const response = await fetch(apiRoot + "?" + params.toString());
-    const result = await response.json();
+  if (checkin) params.append("inDate", checkin);
+  if (roomID) params.append("roomID", roomID);
+  if (payStatus) params.append("payStatus", payStatus);
+  if (reservationStatus) params.append("reservationStatus", reservationStatus);
 
-    if (!result.success) {
-      console.error("Failed to fetch data: ", result.message);
-    } else {
-      clearReservationCards();
-      renderReservation(result.data);
-    }
-  });
+  const response = await fetch(apiRoot + "?" + params.toString());
+  const result = await response.json();
+
+  if (!result.success) {
+    console.error("Failed to fetch data: ", result.message);
+  } else {
+    clearReservationCards();
+    renderReservation(result.data);
+  }
+});
+
 });
 
 async function loadReservation() {
