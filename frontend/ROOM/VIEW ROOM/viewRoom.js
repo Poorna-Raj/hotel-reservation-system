@@ -103,6 +103,22 @@ window.addEventListener("DOMContentLoaded",function(){
     });
 
     updateBtn.addEventListener("click",function(){
+        const roomContainer = document.querySelector('.room-container');
+
+        updateRoomForm.roomName.value = roomContainer.querySelector('.room-name').textContent;
+        updateRoomForm.roomType.value = document.querySelector(".room-type")?.textContent || "";
+        updateRoomForm.price.value = roomPrice;
+        updateRoomForm.bedType.value = roomContainer.querySelector('.bed-type-detail').textContent;
+        updateRoomForm.max_occupancy.value = roomContainer.querySelector('.detail-value-occu').textContent;
+        updateRoomForm.description.value = roomContainer.querySelector('.description').textContent;
+        updateRoomForm.short_description.value = roomContainer.querySelector('.detailsShort').textContent;
+        updateRoomForm.image_01.value = roomContainer.querySelector('.main-image img').src;
+        updateRoomForm.image_02.value = roomContainer.querySelector('.side-image-1').src;
+        updateRoomForm.image_03.value = roomContainer.querySelector('.side-image-2').src;
+        
+        const roomStatus = roomContainer.querySelector('.status-available').style.display === 'inline-block' ? "Available" : "Repair";
+        updateRoomForm.status.value = roomStatus;
+
         updateModel.style.display = "flex";
     });
     const updatePopClose = document.getElementById("updatePopClose");
