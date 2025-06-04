@@ -1,6 +1,6 @@
 const apiRoot = "../../../backend/api/room/customer/listView.php";
 window.addEventListener("DOMContentLoaded",function(){
-
+    const logoutBtn = document.querySelector(".logout-btn");
     const filterForm = this.document.getElementById('filterForm');
     (async function(){
         const rooms = await loadRooms();
@@ -34,6 +34,19 @@ window.addEventListener("DOMContentLoaded",function(){
         catch(error){
             console.error("Failed to fetch data ",error.message);
         }
+    });
+
+    logoutBtn.addEventListener("click",async function() {
+    const apiRoot = "../../../backend/api/auth/logout.php";
+    const respond = await fetch(apiRoot);
+    const result = await respond.json();
+
+    if(result.success){
+        window.location.href = "../../../index.html";
+    }
+    else{
+        alert("Logout Failed");
+    }
     });
 });
 

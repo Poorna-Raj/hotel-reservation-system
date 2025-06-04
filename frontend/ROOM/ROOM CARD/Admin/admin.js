@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded",function(){
     const addForm = document.getElementById("popup");
     const addFormClose = document.getElementById("addRoomClose");
     const saveRoomForm = document.getElementById("addRoomForm");
-
+    const logoutBtn = document.querySelector(".logout-btn");
     
     (async function(){
         const rooms = await loadRooms();
@@ -77,6 +77,19 @@ document.addEventListener("DOMContentLoaded",function(){
         catch(err){
             console.error(err.message);
         }
+    });
+
+    logoutBtn.addEventListener("click",async function() {
+    const apiRoot = "../../../../backend/api/auth/logout.php";
+    const respond = await fetch(apiRoot);
+    const result = await respond.json();
+
+    if(result.success){
+        window.location.href = "../../../../index.html";
+    }
+    else{
+        alert("Logout Failed");
+    }
     });
 });
 
