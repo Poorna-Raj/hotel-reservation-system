@@ -33,34 +33,50 @@ window.addEventListener("DOMContentLoaded",function(){
         updateForm.style.display = "none";
     })
 
-    updateForm.addEventListener("submit",async function(event){
-        const apiRoot = "../../../backend/api/reservation/addReservation.php";
+    updateForm.addEventListener("submit", async function(event) {
         event.preventDefault();
-        const updateData = {   
-            roomID : roomId,
-            inDate : bookingForm.checkin.value,
-            outDate : bookingForm.checkout.value,
-            num_of_guest : bookingForm.guest.value,
-            total : roomTotal(roomPrice,bookingForm.checkin.value,bookingForm.checkout.value)
-        }
 
-        const respond = await fetch(apiRoot,{
-            method : "POST",
-            headers : {
-                "Content-type":"application/json"
-            },
-            body : JSON.stringify(updateData),
-            credentials: "include"
-        });
-        const result = await respond.json();
-        if(!result.success){
-            const errorDisplay = document.getElementById("errorMessage");
-            errorDisplay.textContent = result.message;
+        const apiRoot = "../../../backend/api/reservation/addReservation.php";
+        const errorDisplay = document.getElementById("errorMessage");
+
+        // Reset error message display
+        errorDisplay.style.display = "none";
+        errorDisplay.textContent = "";
+
+        const updateData = {
+            roomID: roomId,
+            inDate: bookingForm.checkin.value,
+            outDate: bookingForm.checkout.value,
+            num_of_guest: bookingForm.guest.value,
+            total: roomTotal(roomPrice, bookingForm.checkin.value, bookingForm.checkout.value)
+        };
+
+        try {
+            const respond = await fetch(apiRoot, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(updateData),
+                credentials: "include"
+            });
+
+            const result = await respond.json();
+
+            if (!result.success) {
+                errorDisplay.textContent = result.message || "An error occurred.";
+                errorDisplay.style.display = "block";
+            } else {
+                console.log("Reservation successful.");
+                location.reload();
+            }
+        } catch (error) {
+            errorDisplay.textContent = "Failed to submit. Please try again later.";
+            errorDisplay.style.display = "block";
+            console.error("Fetch error:", error);
         }
-        else{
-            console.log("Done");
-        }
-    })
+    });
+
     function updatePriceDisplay() {
         const inDate = checkinInput.value;
         const outDate = checkoutInput.value;

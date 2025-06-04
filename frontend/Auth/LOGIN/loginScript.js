@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded',function(){
             errorMessage.style.display = "block";
             return;
         }
-        if(empty(logPassword)){
+        if(!logPassword){
             errorMessage.textContent = "Please enter a password.";
             errorMessage.style.display = "block";
             return;
