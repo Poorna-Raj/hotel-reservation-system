@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="nav-right">
-    <a onclick="logout();" class="logout-btn">Logout</a>
+    <a class="logout-btn">Logout</a>
     <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
       <i class="fa fa-bars"></i>
     </a>

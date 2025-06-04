@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded",function(){
     else{
         alert("Logout Failed");
     }
-  });
+    });
 });
 
 async function loadRooms() {
