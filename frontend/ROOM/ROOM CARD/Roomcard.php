@@ -7,7 +7,7 @@
        
     </head>
     <body>
-    <?php include '../../../responsive-navbar/navbar.html'; ?>
+    <?php include '../../responsive-navbar/navbar.html'; ?>
     <div class="container">
         <div class="filter-search">
             <form id="filterForm">
