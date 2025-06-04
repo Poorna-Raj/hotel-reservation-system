@@ -11,10 +11,10 @@
     <?php include '../../responsive-navbar/nav.html'; ?>
     <script src="register.js"></script>
     <div class="registration-wrapper">
-        <div class="registration-image" id="randomImageContainer">
-            <img id="randomImage" src="https://i.ytimg.com/vi/IUN664s7N-c/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCK23ncwZjjd8IisSnQeSXEp5ZjXw" alt="Random Nature Image">
-            <div class="registration-image-overlay"></div>
-        </div>
+       <div class="registration-image" id="randomImageContainer">
+    <div class="registration-image-overlay"></div>
+</div>
+
         
         <div class="registration-content">
             <div class="registration-header">

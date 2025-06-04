@@ -36,11 +36,13 @@
             overflow: hidden;
         }
 
-        .registration-image {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-        }
+       .registration-image {
+    flex: 1;
+    background: url('https://fulltimeexplorer.com/wp-content/uploads/2017/01/Swimming-with-Elephants-in-Thailand-at-a-Sanctuary.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
 
         .registration-image img {
             position: absolute;
