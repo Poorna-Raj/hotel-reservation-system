@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", function () {
   const searchForm = document.getElementById("filterForm");
   const updateModal = document.querySelector(".modal-overlay");
-    const updateForm = document.getElementById("updateForm");
+  const updateForm = document.getElementById("updateForm");
 
   // Load and render reservations on initial page load
   (async function () {
@@ -16,32 +16,58 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // Handle search form submission
   searchForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const apiRoot = "../../backend/api/reservation/reservation.php";
-    const params = new URLSearchParams();
+  const apiRoot = "../../backend/api/reservation/reservation.php";
+  const params = new URLSearchParams();
 
-    if (searchForm.checkin.value) params.append("inDate", searchForm.checkin.value);
-    if (searchForm.roomid.value) params.append("roomID", searchForm.roomid.value);
-    if (searchForm.paymentStatus.value) params.append("payStatus", searchForm.paymentStatus.value);
-    if (searchForm.reservationStatus.value) params.append("reservationStatus", searchForm.reservationStatus.value);
+  const checkin = searchForm.querySelector('[name="check-in"]').value;
+  const roomID = searchForm.querySelector('[name="room-id"]').value;
+  const payStatus = searchForm.querySelector('[name="payment-status"]').value;
+  const reservationStatus = searchForm.querySelector('[name="reservation-status"]').value;
 
-    const response = await fetch(apiRoot + "?" + params.toString());
-    const result = await response.json();
+  if (checkin) params.append("inDate", checkin);
+  if (roomID) params.append("roomID", roomID);
+  if (payStatus) params.append("payStatus", payStatus);
+  if (reservationStatus) params.append("reservationStatus", reservationStatus);
 
-    if (!result.success) {
-      console.error("Failed to fetch data: ", result.message);
-    } else {
-      clearReservationCards();
-      renderReservation(result.data);
-    }
-  });
+  const response = await fetch(apiRoot + "?" + params.toString());
+  const result = await response.json();
+
+  if (!result.success) {
+    console.error("Failed to fetch data: ", result.message);
+  } else {
+    clearReservationCards();
+    renderReservation(result.data);
+  }
+});
+
 });
 
 async function loadReservation() {
+  const roleResponse = await fetch("../../backend/api/auth/getRole.php");
+  const roleResult = await roleResponse.json();
+
+  if (!roleResult.success) {
+    console.error("Failed to fetch user role.");
+    return [];
+  }
+
   const apiRoot = "../../backend/api/reservation/reservation.php";
-  const response = await fetch(apiRoot);
-  const result = await response.json();
+  const endpoint = "../../backend/api/reservation/customer/reservation.php";
+
+  let result = null;
+  // Optionally add a query to indicate full access if admin
+  if (roleResult.role === "customer") {
+    const response = await fetch(endpoint);
+    result = await response.json();
+  }
+  else{
+    const response = await fetch(apiRoot);
+    result = await response.json();
+  }
+
+  
 
   if (!result.success) {
     console.error("Failed to fetch reservations: ", result.message);
@@ -50,6 +76,7 @@ async function loadReservation() {
 
   return result.data;
 }
+
 
 function clearReservationCards() {
   const container = document.getElementById("roomGrid");
@@ -62,39 +89,59 @@ function clearReservationCards() {
   });
 }
 
-function renderReservation(reservations) {
+function renderReservation(data) {
+  const roomGrid = document.getElementById("roomGrid");
   const template = document.getElementById("reservation_template");
-  const container = document.getElementById("roomGrid");
 
-  reservations.forEach((reservation) => {
-    const card = template.cloneNode(true);
-    card.style.display = "flex";
-    card.removeAttribute("id");
+  // Clear existing cards except template
+  roomGrid.querySelectorAll(".room-card:not(#reservation_template)").forEach(el => el.remove());
 
-    card.querySelector("h3").textContent = reservation.id;
-    card.querySelector(".check-in").textContent = `Check-in: ${reservation.check_in_date}`;
-    card.querySelector(".check-out").textContent = `Check-out: ${reservation.check_out_date}`;
-    card.querySelector(".guest").textContent = `Guests: ${reservation.num_guest}`;
-    card.querySelector(".price").textContent = `Rs. ${reservation.total_amount}`;
+  data.forEach(reservation => {
+    const clone = template.cloneNode(true);
+    clone.id = ""; // Remove ID to avoid duplicates
+    clone.style.display = "block"; // Ensure it's visible
 
-    // Payment Status
-    const paymentText = card.querySelector(".reservation.booked");
-    paymentText.textContent = reservation.payment_status;
+    const roomInfo = clone.querySelector(".room-info");
+    if (!roomInfo) return;
 
-    // Reservation Status
-    const reservationText = card.querySelector(".payment.paid");
-    reservationText.textContent = reservation.reservation_status;
+    // Update reservation and payment status text
+    const reservationText = clone.querySelector(".reservation");
+    const paymentText = clone.querySelector(".payment");
 
-    // Setup Update and Delete Button Handlers
-    const updateBtn = card.querySelector(".btn-update");
-    const deleteBtn = card.querySelector(".btn-delete");
+    if (reservationText) reservationText.textContent = reservation.reservation_status;
+    if (paymentText) paymentText.textContent = reservation.payment_status;
 
-    updateBtn.addEventListener("click", () => openUpdateModal(reservation));
-    deleteBtn.addEventListener("click", () => deleteReservation(reservation.id));
+    // Room title
+    const roomTitle = clone.querySelector("h3");
+    if (roomTitle) roomTitle.textContent = `Reservation ID: ${reservation.id}`;
 
-    container.appendChild(card);
+    // Dates, guests, price
+    const checkIn = clone.querySelector(".check-in");
+    const checkOut = clone.querySelector(".check-out");
+    const guest = clone.querySelector(".guest");
+    const price = clone.querySelector(".price");
+
+    if (checkIn) checkIn.textContent = reservation.check_in_date;
+    if (checkOut) checkOut.textContent = reservation.check_out_date;
+    if (guest) guest.textContent = reservation.num_guest;
+    if (price) price.textContent = `Rs. ${reservation.total_amount}`;
+
+    // Buttons
+    const updateBtn = clone.querySelector(".btn-update");
+    const deleteBtn = clone.querySelector(".btn-delete");
+
+    if (updateBtn) {
+      updateBtn.addEventListener("click", () => openUpdateModal(reservation));
+    }
+
+    if (deleteBtn) {
+      deleteBtn.addEventListener("click", () => deleteReservation(reservation.room_id));
+    }
+
+    roomGrid.appendChild(clone);
   });
 }
+
 
 function openUpdateModal(reservation) {
   const modal = document.querySelector(".modal-overlay");
@@ -181,5 +228,12 @@ async function checkUser() {
   if (result.success && result.role === "customer") {
     const adminFuncElements = document.querySelectorAll("#adminFunc");
     adminFuncElements.forEach((el) => (el.style.display = "none"));
+  }
+  else if(result.success && result.role === "admin"){
+    const adminFuncElements = document.querySelectorAll("#adminFunc");
+    adminFuncElements.forEach((el) => (el.style.display = "block"));
+  }
+  else{
+    window.location.href = "../Auth/LOGIN/login.php";
   }
 }

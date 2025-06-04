@@ -120,7 +120,7 @@
     <div class="nav-links" id="navLinks">
       <a href="../../../index.html" class="active">Home</a>
       <a href="../../ROOM/ROOM CARD/Roomcard.php">Accomadation</a>
-      <a href="#contact">Reservation</a>
+      <a href="../../ROOM RESERVATION/Reservation.php">Reservation</a>
       <a href="../../About us page/aboutuspage.php">About</a>
     </div>
   </div>
@@ -139,12 +139,12 @@ function toggleNav() {
 }
 async function logout(){
   console.log("You click me");
-  const apiRoot = "../../../backend/api/auth/logout.php";
+  const apiRoot = "../../backend/api/auth/logout.php";
   const respond = await fetch(apiRoot);
   const result = await respond.json();
 
   if(result.success){
-    window.location.href="../../../index.html";
+    window.location.href="../../index.html";
   }
   else{
     alert("Logout Failed!");
